@@ -45,7 +45,12 @@ export default function RootLayout({
       <body className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${inter.variable} font-body antialiased`}>
         <ScrollProgress />
         <Header />
-        <main className="min-h-screen">
+        {/* 
+          Padding-top to compensate for fixed header
+          - Mobile: ~80px (header + mobile menu space)
+          - Desktop: ~70px (header height)
+        */}
+        <main className="min-h-screen pt-20 sm:pt-20 md:pt-24 lg:pt-20">
           {children}
         </main>
         <Footer />

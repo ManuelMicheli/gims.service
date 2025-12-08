@@ -36,6 +36,18 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
+
   const handleNavClick = (id: string) => {
     smoothScrollTo(id)
     setIsMobileMenuOpen(false)
@@ -46,7 +58,9 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-background-light/95 backdrop-blur-sm shadow-sm py-3'
-          : 'bg-transparent py-6'
+          : isMobileMenuOpen 
+            ? 'bg-background-light/95 backdrop-blur-sm py-4'
+            : 'bg-transparent py-4 sm:py-6'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -96,14 +110,14 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-background-light border-t border-primary/10"
+            className="lg:hidden bg-background-light/98 backdrop-blur-md border-t border-primary/10 shadow-lg absolute left-0 right-0 top-full"
           >
-            <div className="container mx-auto px-4 py-4 space-y-3">
+            <div className="container mx-auto px-4 py-4 space-y-2 max-w-7xl">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className="block w-full text-left text-sm font-medium text-primary hover:text-accent transition-colors duration-200 py-2"
+                  className="block w-full text-left text-sm font-medium text-primary hover:text-accent transition-colors duration-200 py-2.5 px-2 rounded-sm hover:bg-background-warm/50"
                 >
                   {item.label}
                 </button>
