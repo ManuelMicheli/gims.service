@@ -142,12 +142,12 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeInUp}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-6">
+          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4 sm:mb-6">
             I Nostri Servizi
           </h2>
-          <p className="text-lg text-primary/70 mb-12">
+          <p className="text-base sm:text-lg text-primary/70 mb-8 sm:mb-10 md:mb-12">
             Soluzioni complete per ogni esigenza di ristrutturazione e finitura
           </p>
             
@@ -160,7 +160,13 @@ export default function Services() {
           </motion.div>
 
         {/* Services Grid - Alternating groups with smooth animations */}
-        <div className="relative min-h-[600px] sm:min-h-[500px] lg:min-h-[400px]">
+        {/* 
+          RESPONSIVE LAYOUT:
+          - Mobile (< 640px): 1 card per row, full width
+          - Tablet (640px - 1024px): 2 cards per row
+          - Desktop (1024px+): 4 cards per row
+        */}
+        <div className="relative min-h-[600px] sm:min-h-[500px] md:min-h-[450px] lg:min-h-[400px]">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={activeGroup}
@@ -168,7 +174,7 @@ export default function Services() {
               initial="enter"
               animate="center"
               exit="exit"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto px-4 sm:px-0"
             >
               {currentGroup.map((service) => {
                 const isExpanded = expandedCard === service.id
@@ -177,7 +183,7 @@ export default function Services() {
                   <motion.div
                     key={service.id}
                     variants={cardVariants}
-                    className="group relative bg-background-warm/50 backdrop-blur-sm rounded-sm border border-primary/5 hover:border-accent/20 transition-all duration-250 overflow-hidden"
+                    className={`group relative bg-background-warm/50 backdrop-blur-sm rounded-sm border border-primary/5 hover:border-accent/20 transition-all duration-250 overflow-hidden ${isExpanded ? '' : 'min-h-[280px] sm:min-h-[300px]'}`}
                     whileHover={
                       !isMobile && !isExpanded
                         ? {
@@ -202,15 +208,12 @@ export default function Services() {
                           }
                         : undefined
                     }
-                    style={{
-                      minHeight: isExpanded ? 'auto' : '300px',
-                    }}
                   >
                 {/* Card Content - Minimal */}
-                <div className="p-8 h-full flex flex-col">
+                <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col">
                   {/* Title */}
                   <motion.h3 
-                    className="font-headline text-xl lg:text-2xl font-semibold text-primary mb-4"
+                    className="font-headline text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-3 sm:mb-4"
                     animate={isExpanded ? { color: '#C9A96B' } : {}}
                     transition={{ duration: 0.3 }}
                   >

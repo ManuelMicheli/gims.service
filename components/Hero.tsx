@@ -20,7 +20,7 @@ import ColorInvertText from '@/components/animations/ColorInvertText'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-background-warm">
+    <section id="hero" className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-background-warm">
       {/* Background - Fade-in on load */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -44,12 +44,12 @@ export default function Hero() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 max-w-7xl">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Text Content - Centered */}
           <div>
             {/* Main Headline - Fade-in + translateY */}
-            <AnimatedHeadline delay={0.1} className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold mb-3 leading-tight">
+            <AnimatedHeadline delay={0.1} className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-5 md:mb-6 leading-tight px-2">
               <ColorInvertText>Trasformiamo</ColorInvertText>{' '}
               <ColorInvertText>i tuoi spazi</ColorInvertText>{' '}
               <ColorInvertText>con</ColorInvertText>{' '}
@@ -66,7 +66,7 @@ export default function Hero() {
           {/* Description - Staggered appearance */}
           <AnimatedText
             delay={0.4}
-            className="text-sm sm:text-base text-primary/80 mb-6 max-w-xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-primary/80 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           >
               Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
               Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
@@ -78,7 +78,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-2 justify-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
             >
               <motion.div
                 initial={{ opacity: 0, y: 10 }}

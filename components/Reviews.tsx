@@ -23,15 +23,15 @@ export default function Reviews() {
   const scrollDistance = reviews.length * totalCardWidth
 
   return (
-    <section id="reviews" className="py-20 lg:py-32 bg-background-warm overflow-hidden">
+    <section id="reviews" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-warm overflow-hidden">
       {/* Section Header */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 max-w-7xl">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
               Cosa Dicono i Nostri Clienti
             </h2>
-            <p className="text-lg text-primary/70">
+            <p className="text-base sm:text-lg text-primary/70">
               La soddisfazione dei clienti è la nostra priorità
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function Reviews() {
             {duplicatedReviews.map((review, index) => (
               <motion.div
                 key={`${review.id}-${index}`}
-                className="flex-shrink-0 w-[calc(100vw-48px)] sm:w-[450px] md:w-[500px] lg:w-[550px] bg-background-light p-6 lg:p-8 rounded-sm border border-primary/5 hover:border-accent/30 transition-all duration-250"
+                className="flex-shrink-0 w-[calc(100vw-64px)] sm:w-[400px] md:w-[450px] lg:w-[500px] xl:w-[550px] bg-background-light p-5 sm:p-6 lg:p-8 rounded-sm border border-primary/5 hover:border-accent/30 transition-all duration-250"
                 whileHover={{ 
                   scale: 1.02, 
                   y: -5,

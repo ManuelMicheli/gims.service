@@ -98,7 +98,7 @@ export default function InfiniteImageColumn({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        minHeight: `${imageHeight * 3}px`,
+        minHeight: `${imageHeight * 2.5}px`, // Responsive height - reduced for mobile
       }}
     >
       {/* Image strip */}

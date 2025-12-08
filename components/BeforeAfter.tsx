@@ -58,22 +58,22 @@ export default function BeforeAfter() {
   }, [isDragging])
 
   return (
-    <section id="before-after" className="py-20 lg:py-32 bg-background-warm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="before-after" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-warm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
               Prima e Dopo
             </h2>
-            <p className="text-lg text-primary/70">
+            <p className="text-base sm:text-lg text-primary/70">
               Scopri le trasformazioni che abbiamo realizzato
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Slider */}
-        <div className="max-w-5xl mx-auto">
+        {/* Slider - Responsive max-width */}
+        <div className="max-w-5xl mx-auto px-2 sm:px-0">
           <StaggerContainer>
             <motion.div variants={staggerItem} className="relative">
               {/* Before/After Comparison */}

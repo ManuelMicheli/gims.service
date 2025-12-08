@@ -118,15 +118,15 @@ export default function ProjectTimeline() {
   })
 
   return (
-    <section id="timeline" className="relative py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="timeline" className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeInUp}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
             Il Nostro Processo
@@ -136,14 +136,19 @@ export default function ProjectTimeline() {
           </p>
         </motion.div>
 
-        {/* Timeline - Desktop: Horizontal, Mobile: Vertical */}
-        <div ref={ref} className="relative">
+        {/* Timeline - Desktop: Horizontal, Tablet/Mobile: Vertical */}
+        {/* 
+          RESPONSIVE LAYOUT:
+          - Mobile/Tablet (< 1024px): Vertical stacked layout
+          - Desktop (1024px+): Horizontal timeline layout
+        */}
+        <div ref={ref} className="relative max-w-7xl mx-auto">
           {/* Desktop Horizontal Timeline */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="hidden lg:flex items-start justify-between relative"
+            className="hidden lg:flex items-start justify-between relative px-4"
           >
             {/* Connector Line - Desktop */}
             <div className="absolute top-12 left-0 right-0 h-0.5 bg-primary/10 z-0">
@@ -273,12 +278,12 @@ export default function ProjectTimeline() {
             })}
           </motion.div>
 
-          {/* Mobile Vertical Timeline */}
+          {/* Mobile/Tablet Vertical Timeline */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="lg:hidden space-y-8"
+            className="lg:hidden space-y-6 sm:space-y-8 px-2 sm:px-0"
           >
             {timelineSteps.map((step, index) => {
               const Icon = step.icon

@@ -22,9 +22,14 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section id="about" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* 
+          RESPONSIVE LAYOUT:
+          - Mobile: Stack vertically (image above text)
+          - Desktop (1024px+): Side by side (image left, text right)
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Image - Fade-in from right */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -59,7 +64,7 @@ export default function About() {
                 duration: 0.6, 
                 ease: [0.22, 1, 0.36, 1] 
               }}
-              className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-6"
+              className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mb-4 sm:mb-6"
             >
               Chi Siamo
             </motion.h2>

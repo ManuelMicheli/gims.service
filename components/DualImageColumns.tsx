@@ -29,13 +29,19 @@ export default function DualImageColumns({
   const rightColumnImages: InfiniteImage[] = dualVerticalImages.slice(Math.ceil(dualVerticalImages.length / 2))
 
   return (
-    <div className={`flex flex-col lg:flex-row gap-4 lg:gap-6 w-full lg:w-auto justify-center items-center ${className}`}>
+    <div className={`flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 w-full justify-center items-center ${className}`}>
+      {/* 
+        RESPONSIVE LAYOUT:
+        - Mobile: Stack vertically (flex-col)
+        - Tablet (768px+): Side by side (flex-row)
+        - Reduced height on mobile, full size on larger screens
+      */}
       {/* Left Column - Scrolls Up */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full lg:w-auto"
+        className="w-full md:w-auto md:flex-1 max-w-sm md:max-w-md lg:max-w-lg"
       >
         <InfiniteImageColumn
           images={leftColumnImages}
@@ -43,7 +49,7 @@ export default function DualImageColumns({
           speed={speed}
           imageHeight={imageHeight}
           gap={gap}
-          className="w-full max-w-xs mx-auto lg:max-w-sm"
+          className="w-full"
         />
       </motion.div>
 
@@ -52,7 +58,7 @@ export default function DualImageColumns({
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full lg:w-auto"
+        className="w-full md:w-auto md:flex-1 max-w-sm md:max-w-md lg:max-w-lg"
       >
         <InfiniteImageColumn
           images={rightColumnImages}
@@ -60,7 +66,7 @@ export default function DualImageColumns({
           speed={speed}
           imageHeight={imageHeight}
           gap={gap}
-          className="w-full max-w-xs mx-auto lg:max-w-sm"
+          className="w-full"
         />
       </motion.div>
     </div>

@@ -53,7 +53,13 @@ export default function DualVerticalImageSection() {
         </motion.div>
 
         {/* Dual Image Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 max-w-7xl mx-auto">
+        {/* 
+          RESPONSIVE LAYOUT:
+          - Mobile: Single column (stacked)
+          - Tablet: Still stacked for better mobile experience
+          - Desktop (1024px+): Two columns side by side
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 max-w-7xl mx-auto px-4 sm:px-0">
           {/* Left Column - Scrolls Up */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

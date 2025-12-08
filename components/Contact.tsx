@@ -117,10 +117,10 @@ export default function Contact() {
   return (
     <CTASection
       id="contact"
-      className="py-20 lg:py-32 bg-background-light"
+      className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-light"
       threshold={0.3}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -128,20 +128,25 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
           >
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
               Contattaci
             </h2>
-            <p className="text-lg text-primary/70">
+            <p className="text-base sm:text-lg text-primary/70">
               Richiedi un sopralluogo gratuito e senza impegno
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* 
+            RESPONSIVE LAYOUT:
+            - Mobile: Stack form and info vertically
+            - Desktop (1024px+): Side by side
+          */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             {/* Contact Form */}
             <ScrollReveal>
-              <div className="bg-background-warm p-8 rounded-sm border border-primary/5">
+              <div className="bg-background-warm p-5 sm:p-6 md:p-8 rounded-sm border border-primary/5">
                 <h3 className="font-headline text-2xl font-semibold text-primary mb-6">
                   Invia una Richiesta
                 </h3>

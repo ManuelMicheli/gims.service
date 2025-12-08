@@ -19,22 +19,28 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
 
   return (
-    <section id="projects" className="py-20 lg:py-32 bg-background-light">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-light">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
               Progetti Realizzati
             </h2>
-            <p className="text-lg text-primary/70">
+            <p className="text-base sm:text-lg text-primary/70">
               Alcuni dei nostri lavori più recenti
             </p>
           </div>
         </ScrollReveal>
 
         {/* Projects Grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* 
+          RESPONSIVE GRID:
+          - Mobile: 1 column
+          - Tablet (768px+): 2 columns
+          - Desktop (1024px+): 3 columns
+        */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project) => (
             <motion.div
               key={project.id}

@@ -46,8 +46,14 @@ export default function Footer() {
       }}
       className="bg-primary text-white"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-14 lg:py-16 max-w-7xl">
+        {/* 
+          RESPONSIVE GRID:
+          - Mobile: 1 column
+          - Tablet (768px+): 2 columns
+          - Desktop (1024px+): 4 columns
+        */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="font-headline text-xl font-semibold mb-4">
