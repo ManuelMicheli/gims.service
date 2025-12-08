@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-headline: 'Playfair Display', serif;
+    --font-headline-alt: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-athene: 'ATHENE', serif;
+  }
+  
+  /* ATHENE font face - assumes font files are in /public/fonts/ */
+  @font-face {
+    font-family: 'ATHENE';
+    src: url('/fonts/ATHENE-Regular.woff2') format('woff2'),
+         url('/fonts/ATHENE-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'ATHENE';
+    src: url('/fonts/ATHENE-Italic.woff2') format('woff2'),
+         url('/fonts/ATHENE-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'ATHENE';
+    src: url('/fonts/ATHENE-Bold.woff2') format('woff2'),
+         url('/fonts/ATHENE-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-primary;
+  }
+
+  /* Typography hierarchy */
+  h1 {
+    @apply font-headline text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight;
+  }
+
+  h2 {
+    @apply font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold;
+  }
+
+  h3 {
+    @apply font-headline text-2xl sm:text-3xl lg:text-4xl font-semibold;
+  }
+
+  h4, h5, h6 {
+    @apply font-headline text-xl sm:text-2xl font-semibold;
+  }
+
+  p, body, button, a {
+    @apply font-body;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background-warm;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/30;
+}
+
+/* Selection */
+::selection {
+  @apply bg-accent/30 text-primary;
+}
+
+/* Focus visible */
+*:focus-visible {
+  @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background rounded;
+}
