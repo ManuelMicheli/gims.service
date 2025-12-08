@@ -57,10 +57,10 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background-light/95 backdrop-blur-sm shadow-sm py-3 lg:py-3'
+          ? 'bg-white lg:bg-background-light/95 lg:backdrop-blur-sm shadow-sm py-3 lg:py-3'
           : isMobileMenuOpen 
-            ? 'bg-background-light/95 backdrop-blur-sm py-4 lg:py-6'
-            : 'bg-background-light lg:bg-transparent py-3 sm:py-4 lg:py-6 shadow-sm lg:shadow-none border-b border-primary/10 lg:border-none'
+            ? 'bg-white lg:bg-background-light/95 lg:backdrop-blur-sm py-4 lg:py-6'
+            : 'bg-white lg:bg-transparent py-3 sm:py-4 lg:py-6 shadow-sm lg:shadow-none border-b border-primary/10 lg:border-none'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -110,7 +110,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-background-light/98 backdrop-blur-md border-t border-primary/10 shadow-lg absolute left-0 right-0 top-full"
+            className="lg:hidden bg-white border-t border-primary/10 shadow-lg absolute left-0 right-0 top-full"
           >
             <div className="container mx-auto px-4 py-4 space-y-2 max-w-7xl">
               {navItems.map((item) => (
