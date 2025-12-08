@@ -47,10 +47,12 @@ export default function RootLayout({
         <Header />
         {/* 
           Padding-top to compensate for fixed header
-          - Mobile: ~80px (header + mobile menu space)
-          - Desktop: ~70px (header height)
+          - Mobile: ~80px (header with solid background + separation)
+          - Desktop: ~0px (hero section has negative margin)
         */}
-        <main className="min-h-screen pt-20 sm:pt-20 md:pt-24 lg:pt-20">
+        <main className="min-h-screen pt-20 sm:pt-20 md:pt-24 lg:pt-0">
+          {/* Visual separator for mobile header - elegant divider line */}
+          <div className="lg:hidden h-[1px] bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
           {children}
         </main>
         <Footer />

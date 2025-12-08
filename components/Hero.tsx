@@ -20,7 +20,7 @@ import ColorInvertText from '@/components/animations/ColorInvertText'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-background-warm -mt-20 sm:-mt-20 md:-mt-24 lg:-mt-20">
+    <section id="hero" className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-background-warm -mt-20 sm:-mt-20 md:-mt-24 lg:-mt-20 lg:pt-0">
       {/* Background - Fade-in on load */}
       <motion.div
         className="absolute inset-0 z-0"
