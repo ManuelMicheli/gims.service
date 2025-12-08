@@ -29,7 +29,7 @@ export default function BrandMottoStrip() {
   return (
     <section className="w-full overflow-hidden">
       {/* Marquee Text */}
-      <div className="py-5 sm:py-6 lg:py-7">
+      <div className="py-4 sm:py-5 md:py-6 lg:py-7">
         <MarqueeText
           text={motto}
           speed={25}

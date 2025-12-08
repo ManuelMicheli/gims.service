@@ -60,7 +60,7 @@ export default function Header() {
           ? 'bg-background-light/95 backdrop-blur-sm shadow-sm py-3 lg:py-3'
           : isMobileMenuOpen 
             ? 'bg-background-light/95 backdrop-blur-sm py-4 lg:py-6'
-            : 'bg-background-light lg:bg-transparent py-4 sm:py-5 lg:py-6 shadow-sm lg:shadow-none border-b border-primary/10 lg:border-none'
+            : 'bg-background-light lg:bg-transparent py-3 sm:py-4 lg:py-6 shadow-sm lg:shadow-none border-b border-primary/10 lg:border-none'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
