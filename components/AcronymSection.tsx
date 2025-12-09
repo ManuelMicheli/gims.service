@@ -81,23 +81,23 @@ export default function AcronymSection() {
     >
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         {/* Acronym Display - Minimale ed elegante con proporzioni uniformi */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6">
+        <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-2 md:gap-4 lg:gap-6 overflow-x-auto">
           {acronymItems.map((item, index) => (
-            <div key={item.letter} className="flex items-center">
+            <div key={item.letter} className="flex items-center flex-shrink-0">
               {/* Container lettera con larghezza fissa */}
               <motion.div
                 custom={index}
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
-                className="flex flex-col items-center justify-center w-20 sm:w-24 md:w-28 lg:w-32"
+                className="flex flex-col items-center justify-center w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32"
               >
                 {/* Lettera - stessa dimensione per tutte */}
                 <motion.div
                   custom={index}
                   variants={letterVariants}
-                  className="mb-2 flex items-center justify-center h-12 sm:h-14 md:h-16 lg:h-20"
+                  className="mb-1 sm:mb-2 flex items-center justify-center h-10 sm:h-12 md:h-14 lg:h-16 xl:h-20"
                 >
-                  <span className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none">
+                  <span className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary leading-none">
                     {item.letter}
                   </span>
                 </motion.div>
@@ -106,9 +106,9 @@ export default function AcronymSection() {
                 <motion.div
                   custom={index}
                   variants={wordVariants}
-                  className="mt-1 h-4 sm:h-5 md:h-6 flex items-center justify-center"
+                  className="mt-0.5 sm:mt-1 h-3 sm:h-4 md:h-5 lg:h-6 flex items-center justify-center"
                 >
-                  <span className="font-body text-xs sm:text-sm md:text-base text-primary/70 uppercase tracking-wider text-center">
+                  <span className="font-body text-[10px] sm:text-xs md:text-sm lg:text-base text-primary/70 uppercase tracking-wider text-center whitespace-nowrap">
                     {item.word}
                   </span>
                 </motion.div>
@@ -130,7 +130,7 @@ export default function AcronymSection() {
                         }
                       : { opacity: 0, scale: 0 }
                   }
-                  className="mx-1 sm:mx-2 md:mx-3 text-primary text-2xl sm:text-3xl md:text-4xl font-bold flex items-center"
+                  className="mx-0.5 sm:mx-1 md:mx-2 lg:mx-3 text-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold flex items-center flex-shrink-0"
                 >
                   .
                 </motion.span>

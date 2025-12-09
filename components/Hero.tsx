@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { smoothScrollTo } from '@/lib/utils'
 import PremiumButton from '@/components/ui/PremiumButton'
 import { AnimatedHeadline, AnimatedHighlightWord, AnimatedText } from '@/components/animations/TypographyAnimations'
@@ -11,7 +10,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden lg:-mt-20">
       {/* Background - Solid color with gradient */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-background-warm via-background to-background-warm" />
+      <div className="absolute inset-0 z-0" style={{ backgroundColor: '#EDEDED' }} />
 
       {/* Content - Full width with lateral padding */}
       <div className="relative z-20 flex min-h-screen items-center w-full">
@@ -23,30 +22,32 @@ export default function Hero() {
               <AnimatedHeadline 
                 delay={0.1} 
                 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-semibold leading-[1.1] drop-shadow-lg"
-                style={{ color: '#EDEDED' }}
               >
-                Trasformiamo{' '}
-                i tuoi spazi{' '}
-                con{' '}
-                <AnimatedHighlightWord>
-                  <span className="italic">
-                    precisione
-                  </span>
-                </AnimatedHighlightWord>
-                {' '}
-                e{' '}
-                qualità
+                <span style={{ color: '#1A1A1A' }}>
+                  Trasformiamo{' '}
+                  i tuoi spazi{' '}
+                  con{' '}
+                  <AnimatedHighlightWord>
+                    <span className="italic">
+                      precisione
+                    </span>
+                  </AnimatedHighlightWord>
+                  {' '}
+                  e{' '}
+                  qualità
+                </span>
               </AnimatedHeadline>
 
               {/* Description */}
               <AnimatedText
                 delay={0.4}
                 className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed max-w-none lg:max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
-                style={{ color: '#EDEDED' }}
               >
-                Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
-                Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
-                Il perfetto equilibrio tra qualità artigianale e investimento mirato.
+                <span style={{ color: '#1A1A1A' }}>
+                  Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
+                  Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
+                  Il perfetto equilibrio tra qualità artigianale e investimento mirato.
+                </span>
               </AnimatedText>
 
               {/* CTA Buttons */}
