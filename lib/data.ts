@@ -32,8 +32,6 @@ export const horizontalMarqueeImages: InfiniteImage[] = [
   { src: '/images/a129ce9f-dc35-4d41-a56b-432ab3da30c5.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti con precisione' },
   { src: '/images/d9e27b30-83e5-4325-a353-52c8da95eb83.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale premium' },
   { src: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto completato con eccellenza' },
-  { src: '/images/ca1120c3-bfa2-4dc9-bd59-4aebbdba7510.jpg', alt: 'Dettaglio ristrutturazione Milano - Eccellenza artigianale' },
-  { src: '/images/df187613-432f-4776-b510-1dfe30de7193.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità superiore' },
 ]
 
 // Horizontal marquee images - second row (scrolls right, opposite direction)

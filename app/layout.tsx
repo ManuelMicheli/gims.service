@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     description: 'Oltre 30 anni di esperienza nella ristrutturazione e finiture d\'interni. Sopralluogo gratuito.',
     images: [
       {
-        url: '/images/hero-bg.jpg.jpeg',
+        url: '/images/terrazzo-moderno-struttura-vetro.webp.jpg',
         width: 1200,
         height: 630,
         alt: 'G.I.M.S. Service - Ristrutturazioni Milano',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'G.I.M.S. Service - Ristrutturazioni e Finiture d\'Interni',
     description: 'Oltre 30 anni di esperienza nella ristrutturazione e finiture d\'interni.',
-    images: ['/images/hero-bg.jpg.jpeg'],
+    images: ['/images/terrazzo-moderno-struttura-vetro.webp.jpg'],
   },
   robots: {
     index: true,
@@ -112,7 +112,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: companyInfo.name,
-  image: 'https://gimsservice.vercel.app/images/hero-bg.jpg.jpeg',
+  image: 'https://gimsservice.vercel.app/images/terrazzo-moderno-struttura-vetro.webp.jpg',
   '@id': 'https://gimsservice.vercel.app',
   url: 'https://gimsservice.vercel.app',
   telephone: companyInfo.phone,

@@ -10,28 +10,8 @@ import HeroSlideshow from '@/components/HeroSlideshow'
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden lg:-mt-20">
-      {/* Background Image - Static, no parallax */}
-      <div className="absolute inset-0 z-0 bg-background-warm">
-        <Image
-          src="/bg/hero-gims.jpg"
-          alt="Interni ristrutturati da G.I.M.S. Service - Ristrutturazioni Milano"
-          fill
-          priority
-          quality={85}
-          sizes="100vw"
-          className="object-cover"
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center center',
-          }}
-        />
-      </div>
-
-      {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/75 via-black/60 to-black/80" />
-
-      {/* Subtle Vignette */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,_transparent_0,_transparent_55%,_rgba(0,0,0,0.75)_100%)]" />
+      {/* Background - Solid color with gradient */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-background-warm via-background to-background-warm" />
 
       {/* Content - Full width with lateral padding */}
       <div className="relative z-20 flex min-h-screen items-center w-full">
@@ -42,7 +22,8 @@ export default function Hero() {
               {/* Main Headline */}
               <AnimatedHeadline 
                 delay={0.1} 
-                className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-semibold leading-[1.1] text-white drop-shadow-lg"
+                className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-semibold leading-[1.1] drop-shadow-lg"
+                style={{ color: '#EDEDED' }}
               >
                 Trasformiamo{' '}
                 i tuoi spazi{' '}
@@ -60,7 +41,8 @@ export default function Hero() {
               {/* Description */}
               <AnimatedText
                 delay={0.4}
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-slate-100/90 leading-relaxed max-w-none lg:max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed max-w-none lg:max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
+                style={{ color: '#EDEDED' }}
               >
                 Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
                 Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
