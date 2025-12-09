@@ -21,17 +21,19 @@ export const heroMarqueeImages = HERO_IMAGES
 
 // Horizontal marquee images - renovation detail images (first row - scrolls left)
 export const horizontalMarqueeImages: InfiniteImage[] = [
-  { src: '/images/0d0a1155-6be5-44a7-930b-ad1ca6c2beba.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori di qualità' },
+  { src: '/images/804002da-04f4-418d-997a-ed1728a9698b.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori di qualità' },
   { src: '/images/7f8fe441-0f7e-4dd6-bf4a-59d023966520.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti' },
   { src: '/images/d0affa3a-d7c8-4f5c-8edb-ccac1961f9d8.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale' },
   { src: '/images/ebc80799-ae77-4385-8bc4-c9612f7762c2.jpg', alt: 'Dettaglio ristrutturazione Milano - Trasformazione spazi' },
   { src: '/images/f61873bd-59d5-481d-bce0-67751c62b1d7.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto completato' },
   { src: '/images/5982973e-9973-46c8-8f99-478d10760c15.jpg', alt: 'Dettaglio ristrutturazione Milano - Finiture di qualità' },
   { src: '/images/5b4c008d-08c2-433d-86ae-1fcba80984e5.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto realizzato' },
-  { src: '/images/78448fbf-f531-4d0b-9e57-cccc7d944734.jpg', alt: 'Dettaglio ristrutturazione Milano - Trasformazione completa' },
+  { src: '/images/8cbb728f-f039-47a9-8131-56a991915218.jpg', alt: 'Dettaglio ristrutturazione Milano - Trasformazione completa' },
   { src: '/images/a129ce9f-dc35-4d41-a56b-432ab3da30c5.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti con precisione' },
   { src: '/images/d9e27b30-83e5-4325-a353-52c8da95eb83.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale premium' },
   { src: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto completato con eccellenza' },
+  { src: '/images/ca1120c3-bfa2-4dc9-bd59-4aebbdba7510.jpg', alt: 'Dettaglio ristrutturazione Milano - Eccellenza artigianale' },
+  { src: '/images/df187613-432f-4776-b510-1dfe30de7193.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità superiore' },
 ]
 
 // Horizontal marquee images - second row (scrolls right, opposite direction)
