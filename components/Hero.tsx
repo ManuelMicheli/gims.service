@@ -30,7 +30,7 @@ import { heroMarqueeImages } from '@/lib/data'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-background-warm lg:-mt-20">
+    <section id="hero" className="relative min-h-[85vh] sm:min-h-[75vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-background-warm lg:-mt-20">
       {/* Background - Fade-in on load */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -39,7 +39,7 @@ export default function Hero() {
         transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
       >
         <ParallaxScroll speed={0.15} className="w-full h-full">
-          <div className="relative w-full h-full min-h-[120%] overflow-hidden">
+          <div className="relative w-full h-full overflow-hidden">
             <Image
               src="/images/hero-bg.jpg.jpeg"
               alt="Sfondo hero G.I.M.S. Service - Ristrutturazioni Milano"
@@ -60,12 +60,12 @@ export default function Hero() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-24 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-14 lg:py-24 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Text Content - Left side on desktop, centered on mobile */}
           <div className="text-center lg:text-left">
             {/* Main Headline - Fade-in + translateY */}
-            <AnimatedHeadline delay={0.1} className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-5 md:mb-6 leading-tight px-4 sm:px-2">
+            <AnimatedHeadline delay={0.1} className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight px-2 sm:px-2">
               <ColorInvertText>Trasformiamo</ColorInvertText>{' '}
               <ColorInvertText>i tuoi spazi</ColorInvertText>{' '}
               <ColorInvertText>con</ColorInvertText>{' '}
@@ -82,7 +82,7 @@ export default function Hero() {
           {/* Description - Staggered appearance */}
           <AnimatedText
             delay={0.4}
-            className="text-sm sm:text-base md:text-lg text-primary/80 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
+            className="text-sm sm:text-base md:text-lg text-primary/80 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-2"
           >
               Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
               Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
@@ -94,7 +94,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2 sm:px-4"
             >
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -125,7 +125,7 @@ export default function Hero() {
           </div>
 
           {/* Vertical Image Marquee - Right side on desktop, below text on mobile */}
-          <div className="h-[400px] sm:h-[450px] lg:h-[600px] mt-8 lg:mt-0">
+          <div className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[600px] mt-6 sm:mt-8 lg:mt-0">
             <VerticalImageMarquee
               images={heroMarqueeImages}
               speed={25}
