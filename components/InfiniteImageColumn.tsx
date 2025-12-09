@@ -17,6 +17,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import Image from 'next/image'
 
 export interface InfiniteImage {
   src: string
@@ -113,22 +114,24 @@ export default function InfiniteImageColumn({
         {duplicatedImages.map((image, index) => (
           <div
             key={`${image.src}-${index}`}
-            className="relative overflow-hidden rounded-lg shadow-lg"
+            className="relative overflow-hidden rounded-lg shadow-lg bg-background-warm"
             style={{
               height: `${imageHeight}px`,
               marginBottom: index < duplicatedImages.length - 1 ? `${gap}px` : 0,
               width: '100%',
             }}
           >
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover"
-              loading={index < 4 ? 'eager' : 'lazy'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              priority={index < 4}
+              quality={85}
               onError={(e) => {
-                // Fallback to a placeholder gradient if image fails to load
+                // Fallback: mostra un placeholder gradient se l'immagine non carica
                 const target = e.target as HTMLImageElement
-                target.style.display = 'none'
                 if (target.parentElement) {
                   target.parentElement.style.background = 'linear-gradient(135deg, #F7F5F3 0%, #E8E6E4 100%)'
                 }

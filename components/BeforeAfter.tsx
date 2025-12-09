@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 import { beforeAfterItems } from '@/lib/data'
 import ScrollReveal from '@/components/animations/ScrollReveal'
 import StaggerContainer, { staggerItem } from '@/components/animations/StaggerContainer'
@@ -10,10 +11,16 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 /**
  * Before/After Section Component
  * 
- * Displays before/after slider for renovation projects.
+ * Displays before/after slider for renovation projects with optimized Next/Image components.
+ * 
+ * REPLACE PLACEHOLDER IMAGES:
+ * - Update beforeAfterItems array in lib/data.ts with real before/after photos
+ * - Images should showcase clear transformations (before and after pairs)
+ * - Ensure images are optimized (under 100KB, .webp or .avif format)
+ * - Use descriptive, SEO-friendly alt text with localized keywords
+ * - File names should be kebab-case (e.g., "bagno-prima-ristrutturazione.webp", "bagno-dopo-ristrutturazione.webp")
  * 
  * To update content, modify the beforeAfterItems array in lib/data.ts
- * Replace image paths with actual before/after photos.
  */
 export default function BeforeAfter() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -79,18 +86,25 @@ export default function BeforeAfter() {
               {/* Before/After Comparison */}
               <div
                 ref={sliderRef}
-                className="relative aspect-video rounded-sm overflow-hidden bg-background shadow-xl mb-6 select-none"
+                className="relative aspect-[4/3] rounded-lg overflow-hidden bg-background shadow-xl mb-6 select-none"
               >
                 {/* Before Image */}
                 <div className="absolute inset-0">
-                  <div
-                    className="w-full h-full bg-cover bg-center"
+                  <Image
+                    src={currentItem.beforeImage}
+                    alt={`${currentItem.title} - Prima della ristrutturazione`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                    quality={95}
                     style={{
-                      backgroundImage: `url(${currentItem.beforeImage})`,
+                      objectFit: 'cover',
+                      objectPosition: 'center center',
+                      width: '100%',
+                      height: '100%',
                     }}
-                  >
-                    <div className="w-full h-full bg-gradient-to-r from-primary/20 to-transparent" />
-                  </div>
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent" />
                 </div>
 
                 {/* After Image with Slider */}
@@ -98,10 +112,18 @@ export default function BeforeAfter() {
                   className="absolute inset-0 overflow-hidden"
                   style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                 >
-                  <div
-                    className="w-full h-full bg-cover bg-center"
+                  <Image
+                    src={currentItem.afterImage}
+                    alt={`${currentItem.title} - Dopo la ristrutturazione`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                    quality={95}
                     style={{
-                      backgroundImage: `url(${currentItem.afterImage})`,
+                      objectFit: 'cover',
+                      objectPosition: 'center center',
+                      width: '100%',
+                      height: '100%',
                     }}
                   />
                 </div>

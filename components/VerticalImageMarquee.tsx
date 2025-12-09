@@ -24,6 +24,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import Image from 'next/image'
 
 export interface MarqueeImage {
   src: string
@@ -117,28 +118,27 @@ export default function VerticalImageMarquee({
         {duplicatedImages.map((image, index) => (
           <div
             key={`${image.src}-${index}`}
-            className="relative overflow-hidden"
+            className="relative overflow-hidden rounded-lg shadow-md w-full"
             style={{
               height: `${imageHeight}px`,
               marginBottom: index < duplicatedImages.length - 1 ? `${gap}px` : 0,
               width: '100%',
             }}
           >
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover"
-              loading={index < 4 ? 'eager' : 'lazy'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={index < 4}
+              quality={90}
+              unoptimized={true}
               style={{
+                objectFit: 'cover',
                 objectPosition: 'center',
-              }}
-              onError={(e) => {
-                // Fallback to a placeholder gradient if image fails to load
-                const target = e.target as HTMLImageElement
-                target.style.display = 'none'
-                if (target.parentElement) {
-                  target.parentElement.style.background = 'linear-gradient(135deg, #F7F5F3 0%, #E8E6E4 100%)'
-                }
+                width: '100%',
+                height: '100%',
               }}
             />
             {/* Subtle gradient overlay for premium feel */}

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { projects } from '@/lib/data'
 import ScrollReveal from '@/components/animations/ScrollReveal'
 import StaggerContainer, { staggerItem } from '@/components/animations/StaggerContainer'
@@ -10,8 +11,15 @@ import { X, MapPin, Calendar } from 'lucide-react'
 /**
  * Projects/Gallery Section Component
  * 
- * Displays a grid of project cards with images and details.
+ * Displays a responsive grid of project cards with optimized images and details.
  * Click on a card to open a modal with more information.
+ * 
+ * REPLACE PLACEHOLDER IMAGES:
+ * - Update projects array in lib/data.ts with real project images
+ * - Images should be hero-style photos of completed projects
+ * - Ensure images are optimized (under 100KB, .webp or .avif format)
+ * - Use descriptive, SEO-friendly alt text with localized keywords
+ * - File names should be kebab-case and SEO-optimized (e.g., "progetto-appartamento-milano-120mq.webp")
  * 
  * To update projects, modify the projects array in lib/data.ts
  */
@@ -46,15 +54,18 @@ export default function Projects() {
               key={project.id}
               variants={staggerItem}
               onClick={() => setSelectedProject(project)}
-              className="group relative aspect-[4/3] rounded-sm overflow-hidden bg-background-warm cursor-pointer"
+              className="group relative aspect-[4/3] rounded-lg overflow-hidden bg-background-warm cursor-pointer shadow-md"
             >
               {/* Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{
-                  backgroundImage: `url(${project.image})`,
-                }}
-              >
+              <div className="absolute inset-0">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} - ${project.description}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={85}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
@@ -106,15 +117,16 @@ export default function Projects() {
                   <X className="w-6 h-6" />
                 </button>
 
-                <div className="aspect-video bg-background-warm">
-                  <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url(${selectedProject.image})`,
-                    }}
-                  >
-                    <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10" />
-                  </div>
+                <div className="relative aspect-video bg-background-warm">
+                  <Image
+                    src={selectedProject.image}
+                    alt={`${selectedProject.title} - ${selectedProject.description}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 768px"
+                    quality={90}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                 </div>
 
                 <div className="p-8">

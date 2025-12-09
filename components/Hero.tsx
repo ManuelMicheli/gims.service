@@ -6,6 +6,8 @@ import ParallaxScroll from '@/components/animations/ParallaxScroll'
 import PremiumButton from '@/components/ui/PremiumButton'
 import { AnimatedHeadline, AnimatedHighlightWord, AnimatedText } from '@/components/animations/TypographyAnimations'
 import ColorInvertText from '@/components/animations/ColorInvertText'
+import VerticalImageMarquee from '@/components/VerticalImageMarquee'
+import { heroMarqueeImages } from '@/lib/data'
 
 /**
  * Hero Section Component
@@ -14,6 +16,13 @@ import ColorInvertText from '@/components/animations/ColorInvertText'
  * - Serif headline with highlighted word animation
  * - Fade-in background on load
  * - Staggered text and CTA appearance
+ * - Vertical infinite-scroll marquee of renovation project images
+ * 
+ * REPLACE PLACEHOLDER IMAGES:
+ * - Update heroMarqueeImages in lib/data.ts with real project images
+ * - Images should be large, high-quality renovation project photos
+ * - Ensure images are optimized (under 100KB, .webp or .avif format)
+ * - Use descriptive, SEO-friendly alt text with localized keywords (e.g., "ristrutturazione cucina Milano")
  * 
  * To update content, modify the text strings below.
  */
@@ -45,9 +54,9 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-24 max-w-7xl">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Text Content - Centered */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Text Content - Left side on desktop, centered on mobile */}
+          <div className="text-center lg:text-left">
             {/* Main Headline - Fade-in + translateY */}
             <AnimatedHeadline delay={0.1} className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-5 md:mb-6 leading-tight px-4 sm:px-2">
               <ColorInvertText>Trasformiamo</ColorInvertText>{' '}
@@ -106,6 +115,17 @@ export default function Hero() {
                 </PremiumButton>
               </motion.div>
             </motion.div>
+          </div>
+
+          {/* Vertical Image Marquee - Right side on desktop, below text on mobile */}
+          <div className="h-[400px] sm:h-[450px] lg:h-[600px] mt-8 lg:mt-0">
+            <VerticalImageMarquee
+              images={heroMarqueeImages}
+              speed={25}
+              imageHeight={280}
+              gap={20}
+              className="h-full"
+            />
           </div>
         </div>
       </div>

@@ -7,15 +7,45 @@ export interface InfiniteImage {
   alt: string
 }
 
+// Hero section vertical marquee images - large renovation project images
+export const heroMarqueeImages: InfiniteImage[] = [
+  { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
+  { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
+  { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
+  { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
+  { src: '/images/recinzione-legno-lavori-esterni.webp.jpg', alt: 'Lavori esterni recinzione in legno - Ristrutturazione terrazzo Milano' },
+  { src: '/images/unnamed.jpg', alt: 'Progetto ristrutturazione Milano - Lavori di qualità' },
+]
+
+// Horizontal marquee images - renovation detail images (first row - scrolls left)
+export const horizontalMarqueeImages: InfiniteImage[] = [
+  { src: '/images/0d0a1155-6be5-44a7-930b-ad1ca6c2beba.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori di qualità' },
+  { src: '/images/54352cbc-08ca-43fd-992c-fdbde53fa453.jpg', alt: 'Dettaglio ristrutturazione Milano - Finiture premium' },
+  { src: '/images/6ce139fd-23a8-4f11-8c37-d2180001e2c7.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto realizzato' },
+  { src: '/images/7f8fe441-0f7e-4dd6-bf4a-59d023966520.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti' },
+  { src: '/images/d0affa3a-d7c8-4f5c-8edb-ccac1961f9d8.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale' },
+  { src: '/images/ebc80799-ae77-4385-8bc4-c9612f7762c2.jpg', alt: 'Dettaglio ristrutturazione Milano - Trasformazione spazi' },
+  { src: '/images/f61873bd-59d5-481d-bce0-67751c62b1d7.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto completato' },
+]
+
+// Horizontal marquee images - second row (scrolls right, opposite direction)
+export const horizontalMarqueeImagesRow2: InfiniteImage[] = [
+  { src: '/images/12dc9512-b826-49be-9a94-f6bfdba2a998.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti con precisione' },
+  { src: '/images/5982973e-9973-46c8-8f99-478d10760c15.jpg', alt: 'Dettaglio ristrutturazione Milano - Finiture di qualità' },
+  { src: '/images/5b4c008d-08c2-433d-86ae-1fcba80984e5.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto realizzato Milano' },
+  { src: '/images/78448fbf-f531-4d0b-9e57-cccc7d944734.jpg', alt: 'Dettaglio ristrutturazione Milano - Trasformazione completa' },
+  { src: '/images/8c139d39-4132-4d2d-ba1b-0dbdb8d8a871.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale premium' },
+]
+
 export const dualVerticalImages: InfiniteImage[] = [
-  { src: '/images/project-1.jpg', alt: 'Ristrutturazione moderna' },
-  { src: '/images/project-2.jpg', alt: 'Interni eleganti' },
-  { src: '/images/project-3.jpg', alt: 'Design contemporaneo' },
-  { src: '/images/project-4.jpg', alt: 'Finiture di pregio' },
-  { src: '/images/project-5.jpg', alt: 'Spazi rinnovati' },
-  { src: '/images/project-6.jpg', alt: 'Trasformazione completa' },
-  { src: '/images/before-after-1-after.jpg', alt: 'Prima e dopo - Ristrutturazione completa' },
-  { src: '/images/before-after-2-after.jpg', alt: 'Prima e dopo - Bagno moderno' },
+  { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
+  { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
+  { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
+  { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
+  { src: '/images/recinzione-legno-lavori-esterni.webp.jpg', alt: 'Lavori esterni recinzione in legno - Ristrutturazione terrazzo Milano' },
+  { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
+  { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
+  { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
 ]
 
 export interface Service {
@@ -112,27 +142,43 @@ export const services: Service[] = [
 export const beforeAfterItems: BeforeAfterItem[] = [
   {
     id: '1',
-    beforeImage: '/images/before-after-1-before.jpg',
-    afterImage: '/images/before-after-1-after.jpg',
+    beforeImage: '/images/dopo.jpg',
+    afterImage: '/images/prima.jpg',
     title: 'Ristrutturazione Bagno Completo',
     description: 'Trasformazione completa di un bagno anni \'80 in un ambiente moderno e funzionale, con piastrelle di design e sanitari all\'avanguardia.',
     tags: ['Bagno', 'Pavimenti', 'Rivestimenti'],
   },
   {
     id: '2',
-    beforeImage: '/images/before-after-2-before.jpg',
-    afterImage: '/images/before-after-2-after.jpg',
+    beforeImage: '/images/gims/appartamento-prima-ristrutturazione.webp',
+    afterImage: '/images/gims/appartamento-dopo-ristrutturazione.webp',
     title: 'Ristrutturazione Appartamento',
     description: 'Rinnovamento completo di un appartamento a Milano: cartongesso, imbiancatura e nuova pavimentazione per un risultato contemporaneo.',
     tags: ['Appartamento', 'Cartongesso', 'Pavimenti'],
   },
   {
     id: '3',
-    beforeImage: '/images/before-after-3-before.jpg',
-    afterImage: '/images/before-after-3-after.jpg',
+    beforeImage: '/images/gims/ufficio-prima-ristrutturazione.webp',
+    afterImage: '/images/gims/ufficio-dopo-ristrutturazione.webp',
     title: 'Restyling Ufficio',
     description: 'Modernizzazione di uno spazio ufficio con controsoffitti in cartongesso, nuova illuminazione e finiture di qualità professionale.',
     tags: ['Ufficio', 'Cartongesso', 'Imbiancatura'],
+  },
+  {
+    id: '4',
+    beforeImage: '/images/gims/cucina-prima-ristrutturazione.webp',
+    afterImage: '/images/gims/cucina-dopo-ristrutturazione.webp',
+    title: 'Ristrutturazione Cucina Moderna',
+    description: 'Trasformazione completa di una cucina con nuovi rivestimenti, spatolato decorativo e illuminazione integrata.',
+    tags: ['Cucina', 'Rivestimenti', 'Spatolati'],
+  },
+  {
+    id: '5',
+    beforeImage: '/images/804002da-04f4-418d-997a-ed1728a9698b.jpg',
+    afterImage: '/images/df187613-432f-4776-b510-1dfe30de7193.jpg',
+    title: 'Trasformazione Completa',
+    description: 'Ristrutturazione completa con interventi su tutti gli ambienti, dalla demolizione alla consegna finale.',
+    tags: ['Ristrutturazione', 'Completa', 'Milano'],
   },
 ]
 
@@ -141,7 +187,7 @@ export const projects: Project[] = [
     id: '1',
     title: 'Ristrutturazione Appartamento a Milano',
     description: 'Completa ristrutturazione di un appartamento di 120 mq con interventi su tutti gli ambienti.',
-    image: '/images/project-1.jpg',
+    image: '/images/gims/progetto-appartamento-milano-120mq.webp',
     tags: ['Bagno', 'Cartongesso', 'Pavimenti'],
     location: 'Milano',
     year: '2023',
@@ -150,7 +196,7 @@ export const projects: Project[] = [
     id: '2',
     title: 'Ristrutturazione Villa a Bareggio',
     description: 'Restyling completo di una villa unifamiliare con attenzione ai dettagli e finiture di pregio.',
-    image: '/images/project-2.jpg',
+    image: '/images/gims/progetto-villa-bareggio.webp',
     tags: ['Spatolati', 'Tapparelle', 'Rivestimenti'],
     location: 'Bareggio',
     year: '2023',
@@ -159,7 +205,7 @@ export const projects: Project[] = [
     id: '3',
     title: 'Nuovo Bagno Padronale',
     description: 'Realizzazione di un bagno padronale moderno con doccia walk-in e finiture di design.',
-    image: '/images/project-3.jpg',
+    image: '/images/gims/progetto-bagno-padronale-cornaredo.webp',
     tags: ['Bagno', 'Rivestimenti', 'Impianti'],
     location: 'Cornaredo',
     year: '2022',
@@ -168,7 +214,7 @@ export const projects: Project[] = [
     id: '4',
     title: 'Ristrutturazione Negozio',
     description: 'Rinnovamento completo di uno spazio commerciale con cartongesso decorativo e illuminazione professionale.',
-    image: '/images/project-4.jpg',
+    image: '/images/gims/progetto-negozio-rho.webp',
     tags: ['Cartongesso', 'Imbiancatura', 'Illuminazione'],
     location: 'Rho',
     year: '2022',
@@ -177,7 +223,7 @@ export const projects: Project[] = [
     id: '5',
     title: 'Appartamento Moderno',
     description: 'Ristrutturazione di un appartamento con open space, cartongesso e pavimenti in parquet.',
-    image: '/images/project-5.jpg',
+    image: '/images/gims/progetto-appartamento-moderno-milano.webp',
     tags: ['Cartongesso', 'Pavimenti', 'Decorazioni'],
     location: 'Milano',
     year: '2022',
@@ -186,43 +232,93 @@ export const projects: Project[] = [
     id: '6',
     title: 'Restyling Cucina',
     description: 'Trasformazione di una cucina con nuove piastrelle, spatolato decorativo e rivestimenti.',
-    image: '/images/project-6.jpg',
+    image: '/images/gims/progetto-cucina-restyling-bareggio.webp',
     tags: ['Cucina', 'Rivestimenti', 'Spatolati'],
     location: 'Bareggio',
     year: '2021',
+  },
+  {
+    id: '7',
+    title: 'Ristrutturazione Soggiorno Open Space',
+    description: 'Trasformazione di un soggiorno con cartongesso decorativo, pavimenti e illuminazione integrata.',
+    image: '/images/gims/progetto-soggiorno-open-space-milano.webp',
+    tags: ['Cartongesso', 'Pavimenti', 'Illuminazione'],
+    location: 'Milano',
+    year: '2023',
+  },
+  {
+    id: '8',
+    title: 'Ristrutturazione Ufficio Professionale',
+    description: 'Modernizzazione completa di uno spazio ufficio con controsoffitti, nuove finiture e impianti.',
+    image: '/images/gims/progetto-ufficio-professionale-milano.webp',
+    tags: ['Cartongesso', 'Imbiancatura', 'Impianti'],
+    location: 'Milano',
+    year: '2023',
+  },
+  {
+    id: '9',
+    title: 'Ristrutturazione Camera da Letto',
+    description: 'Restyling di una camera da letto con cartongesso, pavimenti e finiture eleganti.',
+    image: '/images/gims/progetto-camera-letto-elegante-milano.webp',
+    tags: ['Cartongesso', 'Pavimenti', 'Decorazioni'],
+    location: 'Milano',
+    year: '2022',
+  },
+  {
+    id: '10',
+    title: 'Progetto Ristrutturazione Completa',
+    description: 'Ristrutturazione completa con interventi su tutti gli ambienti, dalla progettazione alla consegna finale.',
+    image: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg',
+    tags: ['Ristrutturazione', 'Completa', 'Milano'],
+    location: 'Milano',
+    year: '2023',
+  },
+  {
+    id: '11',
+    title: 'Trasformazione Spazi Moderni',
+    description: 'Modernizzazione completa di spazi residenziali con design contemporaneo e finiture di qualità.',
+    image: '/images/ca1120c3-bfa2-4dc9-bd59-4aebbdba7510.jpg',
+    tags: ['Modernizzazione', 'Design', 'Finiture'],
+    location: 'Milano',
+    year: '2023',
   },
 ]
 
 export const faqItems: FAQItem[] = [
   {
     id: '1',
-    question: 'Quali sono le tempistiche tipiche per una ristrutturazione?',
-    answer: 'Le tempistiche variano in base all\'ampiezza dell\'intervento. Un bagno completo richiede generalmente 3-4 settimane, mentre una ristrutturazione completa di un appartamento può richiedere 2-3 mesi. Dopo il sopralluogo gratuito, forniamo sempre un preventivo dettagliato con tempi di esecuzione precisi.',
+    question: 'Come chiedere un preventivo?',
+    answer: 'Per richiedere un preventivo è sufficiente mettersi in contatto con noi attraverso i diversi canali disponibili: telefono, e‑mail, modulo di contatto sul sito o messaggistica istantanea. Saremo lieti di raccogliere le tue esigenze e fornirti una valutazione gratuita e trasparente.',
   },
   {
     id: '2',
-    question: 'Come funziona il sopralluogo?',
-    answer: 'Il sopralluogo è completamente gratuito e senza impegno. Durante la visita analizziamo gli spazi, discutiamo le vostre esigenze e forniamo consigli professionali. Segue un preventivo dettagliato entro 7-10 giorni lavorativi, con tutte le voci di costo trasparenti.',
+    question: 'Quanto costa fare un preventivo?',
+    answer: 'Il preventivo è completamente gratuito: lo realizziamo senza alcun impegno, per offrirti una valutazione chiara e trasparente dei lavori da eseguire.',
   },
   {
     id: '3',
-    question: 'Che materiali utilizzate e sono certificati?',
-    answer: 'Utilizziamo esclusivamente materiali certificati e di alta qualità, selezionati in base alle specifiche esigenze del progetto. Collaboriamo con fornitori affidabili e garantiamo sempre la tracciabilità dei materiali utilizzati, con certificazioni CE e normative di sicurezza.',
+    question: 'Quali tipi di pavimenti installate?',
+    answer: 'Installiamo pavimenti in legno, laminato, gres porcellanato e vinilico, adattandoci alle esigenze del cliente.',
   },
   {
     id: '4',
-    question: 'Gestite anche gli impianti (elettrico, idraulico, serramenti)?',
-    answer: 'Sì, coordiniamo tutto il processo di ristrutturazione. Lavoriamo con partner qualificati e certificati per impianti elettrici, idraulici, serramenti e climatizzazione. Offriamo un servizio completo e coordinato, dalla progettazione alla consegna finale.',
+    question: 'Offrite servizi di imbiancatura per interni ed esterni?',
+    answer: 'Sì, realizziamo imbiancature professionali per ambienti interni ed esterni con finiture personalizzate.',
   },
   {
     id: '5',
-    question: 'Fornite garanzia sui lavori?',
-    answer: 'Sì, garantiamo tutti i lavori eseguiti. La durata della garanzia varia in base al tipo di intervento (solitamente 2-5 anni) ed è sempre specificata nel preventivo. Siamo disponibili per interventi di manutenzione e assistenza post-consegna.',
+    question: 'Come gestite la spazzatura?',
+    answer: 'Durante i lavori ci occupiamo direttamente della raccolta e dello smaltimento dei materiali di risulta. Utilizziamo contenitori dedicati e seguiamo le normative locali per il conferimento dei rifiuti, garantendo ordine e pulizia in cantiere. Al termine dell\'intervento lasciamo sempre gli ambienti liberi da scarti e pronti all\'uso.',
   },
   {
     id: '6',
-    question: 'Lavorate anche su piccoli interventi?',
-    answer: 'Certamente. Oltre alle grandi ristrutturazioni, ci occupiamo anche di interventi più piccoli come imbiancature, riparazioni, sostituzioni di tapparelle o lavori di manutenzione. Valutiamo ogni richiesta con la stessa professionalità e attenzione.',
+    question: 'Come gestite i lavori di idraulica?',
+    answer: 'Ci occupiamo di riparazioni, manutenzioni e installazioni idrauliche seguendo procedure tecniche precise e conformi alle normative vigenti. Ogni intervento viene eseguito con analisi preliminare dell\'impianto per individuare guasti, perdite o inefficienze, utilizzo di materiali certificati (tubi multistrato, raccordi a pressare, guarnizioni e valvole conformi UNI/CE), strumentazione professionale per test di pressione, rilevamento perdite e verifica della portata, e installazioni su misura di reti idriche, scarichi, sanitari e sistemi di riscaldamento, con attenzione alla distribuzione ottimale e alla riduzione dei consumi. In ogni fase assicuriamo precisione, sicurezza e rispetto delle normative, offrendo soluzioni personalizzate che garantiscono affidabilità e risultati duraturi.',
+  },
+  {
+    id: '7',
+    question: 'Realizzate strutture in cartongesso su misura?',
+    answer: 'Sì, ci occupiamo della progettazione e realizzazione di pareti, controsoffitti ed elementi decorativi in cartongesso, studiati su misura per ogni ambiente. Offriamo soluzioni personalizzate che uniscono funzionalità ed estetica, garantendo precisione nel montaggio e risultati di qualità.',
   },
 ]
 
