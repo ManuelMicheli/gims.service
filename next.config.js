@@ -13,12 +13,6 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
-  // PWA support
-  // Note: Service worker will be added separately if needed
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  },
   // Headers for security and performance
   async headers() {
     return [

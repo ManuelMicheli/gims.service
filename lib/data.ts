@@ -14,9 +14,6 @@ export const HERO_IMAGES: InfiniteImage[] = [
   { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
   { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
   { src: '/images/recinzione-legno-lavori-esterni.webp.jpg', alt: 'Lavori esterni recinzione in legno - Ristrutturazione terrazzo Milano' },
-  { src: '/images/nuovo.jpg', alt: 'Nuovo progetto ristrutturazione Milano - Lavori di qualità' },
-  { src: '/images/cucina.jpg', alt: 'Ristrutturazione cucina moderna - Progetto realizzato Milano' },
-  { src: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg', alt: 'Progetto ristrutturazione completo - Lavori di qualità Milano' },
 ]
 
 // Legacy export for backward compatibility
@@ -216,7 +213,7 @@ export const projects: Project[] = [
     id: '5',
     title: 'Imbiancatura e Pavimenti in Legno',
     description: 'Imbiancatura completa di interni con pavimenti in legno, prodotti di alta qualità e finiture perfette.',
-    image: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg',
+    image: '/images/imbiancatura e pavi.jpg',
     tags: ['Imbiancatura', 'Pavimenti', 'Legno'],
     location: 'Milano',
     year: '2023',
@@ -245,6 +242,15 @@ export const projects: Project[] = [
     description: 'Realizzazione di recinzioni in legno e lavori esterni con materiali di qualità.',
     image: '/images/recinzione-legno-lavori-esterni.webp.jpg',
     tags: ['Esterni', 'Recinzioni', 'Legno'],
+    location: 'Milano',
+    year: '2023',
+  },
+  {
+    id: '9',
+    title: 'Progetto Ristrutturazione Completa',
+    description: 'Ristrutturazione completa di un immobile con interventi su tutti gli ambienti, dalla progettazione alla consegna finale.',
+    image: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg',
+    tags: ['Ristrutturazione', 'Completa', 'Milano'],
     location: 'Milano',
     year: '2023',
   },
