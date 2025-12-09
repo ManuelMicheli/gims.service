@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { smoothScrollTo } from '@/lib/utils'
 import ParallaxScroll from '@/components/animations/ParallaxScroll'
 import PremiumButton from '@/components/ui/PremiumButton'
@@ -38,14 +39,20 @@ export default function Hero() {
         transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
       >
         <ParallaxScroll speed={0.15} className="w-full h-full">
-          <div
-            className="w-full h-full bg-cover bg-center bg-no-repeat min-h-[120%]"
-            style={{
-              backgroundImage: 'url(/images/hero-bg.jpg.jpeg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
+          <div className="relative w-full h-full min-h-[120%] overflow-hidden">
+            <Image
+              src="/images/hero-bg.jpg.jpeg"
+              alt="Sfondo hero G.I.M.S. Service - Ristrutturazioni Milano"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={90}
+              priority
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center center',
+              }}
+            />
             {/* Overlay for better text readability */}
             <div className="absolute inset-0 bg-primary/30 z-10" />
           </div>

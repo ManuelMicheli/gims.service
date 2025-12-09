@@ -40,26 +40,48 @@ export default function BeforeAfter() {
 
   const currentItem = beforeAfterItems[activeIndex]
 
+  // Calculate slider position from client coordinates
+  const updateSliderPosition = (clientX: number) => {
+    if (!sliderRef.current) return
+    const rect = sliderRef.current.getBoundingClientRect()
+    const x = clientX - rect.left
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100))
+    setSliderPosition(percentage)
+  }
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging || !sliderRef.current) return
+      if (!isDragging) return
+      e.preventDefault()
+      updateSliderPosition(e.clientX)
+    }
 
-      const rect = sliderRef.current.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100))
-      setSliderPosition(percentage)
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return
+      e.preventDefault()
+      if (e.touches.length > 0) {
+        updateSliderPosition(e.touches[0].clientX)
+      }
     }
 
     const handleMouseUp = () => {
       setIsDragging(false)
     }
 
+    const handleTouchEnd = () => {
+      setIsDragging(false)
+    }
+
     if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mousemove', handleMouseMove, { passive: false })
+      document.addEventListener('touchmove', handleTouchMove, { passive: false })
       document.addEventListener('mouseup', handleMouseUp)
+      document.addEventListener('touchend', handleTouchEnd)
       return () => {
         document.removeEventListener('mousemove', handleMouseMove)
+        document.removeEventListener('touchmove', handleTouchMove)
         document.removeEventListener('mouseup', handleMouseUp)
+        document.removeEventListener('touchend', handleTouchEnd)
       }
     }
   }, [isDragging])
@@ -130,18 +152,46 @@ export default function BeforeAfter() {
 
                 {/* Slider Handle */}
                 <div
-                  className="absolute top-0 bottom-0 w-1 bg-accent cursor-ew-resize z-10"
+                  className="absolute top-0 bottom-0 w-1 bg-accent cursor-ew-resize z-10 touch-none"
                   style={{ left: `${sliderPosition}%` }}
                   onMouseDown={(e) => {
                     e.preventDefault()
                     setIsDragging(true)
                   }}
+                  onTouchStart={(e) => {
+                    e.preventDefault()
+                    setIsDragging(true)
+                    if (e.touches.length > 0) {
+                      updateSliderPosition(e.touches[0].clientX)
+                    }
+                  }}
                 >
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-accent rounded-full flex items-center justify-center shadow-lg pointer-events-none">
-                    <ChevronLeft className="w-4 h-4 text-white" />
-                    <ChevronRight className="w-4 h-4 text-white -ml-1" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-accent rounded-full flex items-center justify-center shadow-lg pointer-events-none">
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white -ml-1" />
                   </div>
                 </div>
+
+                {/* Touch area for mobile - full width overlay */}
+                <div
+                  className="absolute inset-0 z-[5] touch-none sm:hidden"
+                  onTouchStart={(e) => {
+                    e.preventDefault()
+                    setIsDragging(true)
+                    if (e.touches.length > 0) {
+                      updateSliderPosition(e.touches[0].clientX)
+                    }
+                  }}
+                  onTouchMove={(e) => {
+                    if (isDragging && e.touches.length > 0) {
+                      e.preventDefault()
+                      updateSliderPosition(e.touches[0].clientX)
+                    }
+                  }}
+                  onTouchEnd={() => {
+                    setIsDragging(false)
+                  }}
+                />
 
                 {/* Labels */}
                 <div className="absolute top-4 left-4 bg-primary/80 text-white px-4 py-2 rounded-sm text-sm font-medium backdrop-blur-sm">

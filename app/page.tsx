@@ -17,15 +17,15 @@ export default function Home() {
         <Hero />
         <BrandMottoStrip />
         <AcronymSection />
-        <Services />
+      <Services />
         <HorizontalMarqueeSection />
-        <ProjectTimeline />
-        <About />
-        <BeforeAfter />
-        <Projects />
-        <FAQ />
-        <Reviews />
-        <Contact />
+      <ProjectTimeline />
+      <About />
+      <BeforeAfter />
+      <Projects />
+      <FAQ />
+      <Reviews />
+      <Contact />
     </>
   )
 }
