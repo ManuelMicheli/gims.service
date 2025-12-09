@@ -121,7 +121,7 @@ export default function VerticalImageMarquee({
             className="relative overflow-hidden rounded-lg shadow-md w-full"
             style={{
               height: `${imageHeight}px`,
-              marginBottom: index < duplicatedImages.length - 1 ? `${gap}px` : 0,
+              marginBottom: `${gap}px`,
               width: '100%',
             }}
           >

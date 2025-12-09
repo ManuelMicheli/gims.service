@@ -130,7 +130,7 @@ export default function Hero() {
               images={heroMarqueeImages}
               speed={25}
               imageHeight={280}
-              gap={20}
+              gap={12}
               className="h-full"
             />
           </div>
