@@ -1,0 +1,15 @@
+# robots.txt for G.I.M.S. Service
+# https://gimsservice.vercel.app
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /api/
+
+# Sitemap
+Sitemap: https://gimsservice.vercel.app/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+# Crawl-delay: 1

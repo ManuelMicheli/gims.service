@@ -123,7 +123,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-white/80">
               <li>
                 <a
-                  href="#privacy"
+                  href="/privacy"
                   className="hover:text-accent transition-colors duration-200"
                 >
                   Privacy Policy
@@ -131,21 +131,48 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#cookie"
+                  href="/cookie"
                   className="hover:text-accent transition-colors duration-200"
                 >
                   Cookie Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/condizioni"
+                  className="hover:text-accent transition-colors duration-200"
+                >
+                  Condizioni d&apos;uso
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/60">
-          <p>
-            © {currentYear} {companyInfo.name}. Tutti i diritti riservati.
-          </p>
+        {/* Copyright & Legal Info */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="text-center space-y-2 text-sm text-white/60">
+            <p>
+              <strong className="text-white/80">{companyInfo.name}</strong> | P.IVA [da inserire] | {companyInfo.address}, {companyInfo.city}
+            </p>
+            <p>
+              © {currentYear} Tutti i diritti riservati |{' '}
+              <a href="/privacy" className="hover:text-accent transition-colors duration-200">
+                Privacy Policy
+              </a>
+              {' · '}
+              <a href="/cookie" className="hover:text-accent transition-colors duration-200">
+                Cookie Policy
+              </a>
+              {' · '}
+              <a href="/condizioni" className="hover:text-accent transition-colors duration-200">
+                Condizioni d&apos;uso
+              </a>
+            </p>
+            <p className="text-xs text-white/50 pt-2">
+              Partita IVA e informazioni fiscali da inserire
+            </p>
+          </div>
         </div>
       </div>
     </motion.footer>

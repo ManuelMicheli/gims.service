@@ -66,30 +66,59 @@ export default function Contact() {
 
     setStatus('submitting')
 
-    // TODO: Replace with your form submission endpoint
-    // Example:
-    // try {
-    //   const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(formData),
-    //   })
-    //   if (response.ok) {
-    //     setStatus('success')
-    //     setFormData({ nome: '', email: '', telefono: '', tipo: '', messaggio: '' })
-    //   } else {
-    //     setStatus('error')
-    //   }
-    // } catch (error) {
-    //   setStatus('error')
-    // }
+    try {
+      // EmailJS integration
+      if (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID && process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID && process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+        // Dynamic import of EmailJS
+        const emailjs = await import('@emailjs/browser')
+        
+        const templateParams = {
+          from_name: formData.nome,
+          from_email: formData.email,
+          phone: formData.telefono,
+          service_type: formData.tipo,
+          message: formData.messaggio,
+          to_email: companyInfo.email,
+        }
 
-    // Simulate form submission for demo
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ nome: '', email: '', telefono: '', tipo: '', messaggio: '' })
-      setTimeout(() => setStatus('idle'), 5000)
-    }, 1000)
+        await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        )
+
+        // Track form submission in analytics
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'form_submission', {
+            event_category: 'Contact',
+            event_label: formData.tipo,
+          })
+        }
+
+        setStatus('success')
+        setFormData({ nome: '', email: '', telefono: '', tipo: '', messaggio: '' })
+        setTimeout(() => setStatus('idle'), 5000)
+      } else {
+        // Fallback: API route or alternative method
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        })
+
+        if (response.ok) {
+          setStatus('success')
+          setFormData({ nome: '', email: '', telefono: '', tipo: '', messaggio: '' })
+          setTimeout(() => setStatus('idle'), 5000)
+        } else {
+          setStatus('error')
+        }
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setStatus('error')
+    }
   }
 
   const handleChange = (

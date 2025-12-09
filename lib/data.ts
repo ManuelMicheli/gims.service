@@ -7,15 +7,20 @@ export interface InfiniteImage {
   alt: string
 }
 
-// Hero section vertical marquee images - large renovation project images
-export const heroMarqueeImages: InfiniteImage[] = [
+// Hero section slideshow images - professional renovation project images
+export const HERO_IMAGES: InfiniteImage[] = [
   { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
   { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
   { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
   { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
   { src: '/images/recinzione-legno-lavori-esterni.webp.jpg', alt: 'Lavori esterni recinzione in legno - Ristrutturazione terrazzo Milano' },
   { src: '/images/nuovo.jpg', alt: 'Nuovo progetto ristrutturazione Milano - Lavori di qualità' },
+  { src: '/images/cucina.jpg', alt: 'Ristrutturazione cucina moderna - Progetto realizzato Milano' },
+  { src: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg', alt: 'Progetto ristrutturazione completo - Lavori di qualità Milano' },
 ]
+
+// Legacy export for backward compatibility
+export const heroMarqueeImages = HERO_IMAGES
 
 // Horizontal marquee images - renovation detail images (first row - scrolls left)
 export const horizontalMarqueeImages: InfiniteImage[] = [
