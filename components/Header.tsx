@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { smoothScrollTo } from '@/lib/utils'
+import { useRouter, usePathname } from 'next/navigation'
 
 /**
  * Header Component
@@ -18,15 +19,18 @@ const navItems = [
   { label: 'Servizi', id: 'services' },
   { label: 'Chi Siamo', id: 'about' },
   { label: 'Prima e Dopo', id: 'before-after' },
-  { label: 'Progetti', id: 'projects' },
+  { label: 'Progetti', id: 'projects', href: '/progetti' },
   { label: 'FAQ', id: 'faq' },
   { label: 'Recensioni', id: 'reviews' },
   { label: 'Contatti', id: 'contact' },
 ]
 
 export default function Header() {
+  const router = useRouter()
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,9 +52,27 @@ export default function Header() {
     }
   }, [isMobileMenuOpen])
 
-  const handleNavClick = (id: string) => {
-    smoothScrollTo(id)
+  const handleNavClick = (item: typeof navItems[0]) => {
     setIsMobileMenuOpen(false)
+    
+    if (item.href) {
+      // Link con href specifico (es. /progetti)
+      router.push(item.href)
+    } else if (item.id === 'hero') {
+      // Link Home: naviga alla home page
+      if (isHomePage) {
+        smoothScrollTo(item.id)
+      } else {
+        router.push('/')
+      }
+    } else {
+      // Altri link: se siamo sulla home, fai scroll, altrimenti naviga alla home con hash
+      if (isHomePage) {
+        smoothScrollTo(item.id)
+      } else {
+        router.push(`/#${item.id}`)
+      }
+    }
   }
 
   return (
@@ -67,7 +89,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo - Responsive sizing */}
           <button
-            onClick={() => handleNavClick('hero')}
+            onClick={() => handleNavClick({ label: 'Home', id: 'hero' })}
             className="font-body text-lg sm:text-xl md:text-2xl font-semibold text-primary hover:text-accent transition-colors duration-200"
           >
             G.I.M.S. Service
@@ -78,7 +100,7 @@ export default function Header() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => handleNavClick(item.id)}
+                onClick={() => handleNavClick(item)}
                 className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200 relative group"
               >
                 {item.label}
@@ -118,7 +140,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className="block w-full text-left text-sm font-medium text-primary hover:text-accent transition-colors duration-200 py-2.5 px-2 rounded-sm hover:bg-background-warm/50"
                 >
                   {item.label}

@@ -21,6 +21,7 @@
  */
 
 import MarqueeText from '@/components/MarqueeText'
+import ScrollReveal from '@/components/animations/ScrollReveal'
 
 // Brand motto - customize this text
 const motto = 'G.I.M.S. Service'
@@ -29,16 +30,18 @@ export default function BrandMottoStrip() {
   return (
     <section className="w-full overflow-hidden">
       {/* Marquee Text */}
-      <div className="py-4 sm:py-5 md:py-6 lg:py-7">
-        <MarqueeText
-          text={motto}
-          speed={25}
-          direction="left"
-          separator=" - "
-          repeat={20}
-          className="text-primary font-body text-sm sm:text-base lg:text-lg font-medium uppercase tracking-[0.2em]"
-        />
-      </div>
+      <ScrollReveal delay={0.1}>
+        <div className="py-4 sm:py-5 md:py-6 lg:py-7">
+          <MarqueeText
+            text={motto}
+            speed={25}
+            direction="left"
+            separator=" - "
+            repeat={20}
+            className="text-primary font-body text-sm sm:text-base lg:text-lg font-medium uppercase tracking-[0.2em]"
+          />
+        </div>
+      </ScrollReveal>
     </section>
   )
 }

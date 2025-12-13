@@ -131,33 +131,29 @@ export default function Services() {
   const currentGroup = serviceGroups[activeGroup] || serviceGroups[0]
 
   return (
-    <section id="services" className="relative py-20 lg:py-32 bg-background-light overflow-hidden">
+    <section id="services" className="relative py-20 lg:py-32 bg-gradient-elegant overflow-hidden">
       {/* Animated Waves Background */}
       <ScrollWaves />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={fadeInUp}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20"
-        >
-          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4 sm:mb-6">
-            I Nostri Servizi
-          </h2>
-          <p className="text-base sm:text-lg text-primary/70 mb-8 sm:mb-10 md:mb-12">
-            Soluzioni complete per ogni esigenza di ristrutturazione e finitura
-          </p>
-            
-            {/* Elegant Separator */}
-            <div className="flex items-center justify-center gap-4 mb-16">
-              <div className="h-px w-12 bg-primary/20" />
-              <div className="h-1 w-1 bg-accent rounded-full" />
-              <div className="h-px flex-1 max-w-xs bg-primary/20" />
+        <ScrollReveal delay={0.1}>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20">
+            <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4 sm:mb-6">
+              I Nostri Servizi
+            </h2>
+            <p className="text-base sm:text-lg text-primary/70 mb-8 sm:mb-10 md:mb-12">
+              Soluzioni complete per ogni esigenza di ristrutturazione e finitura
+            </p>
+              
+              {/* Elegant Separator */}
+              <div className="flex items-center justify-center gap-4 mb-16">
+                <div className="h-px w-12 bg-primary/20" />
+                <div className="h-1 w-1 bg-accent rounded-full" />
+                <div className="h-px flex-1 max-w-xs bg-primary/20" />
+              </div>
             </div>
-          </motion.div>
+        </ScrollReveal>
 
         {/* Services Grid - Alternating groups with smooth animations */}
         {/* 
@@ -183,16 +179,19 @@ export default function Services() {
                   <motion.div
                     key={service.id}
                     variants={cardVariants}
-                    className={`group relative bg-background-warm/50 backdrop-blur-sm rounded-sm border border-primary/5 hover:border-accent/20 transition-all duration-250 overflow-hidden ${isExpanded ? '' : 'min-h-[280px] sm:min-h-[300px]'}`}
+                    className={`group relative bg-surface-elevated rounded-sm border border-primary/8 hover:border-accent/30 shadow-elegant hover:shadow-hover transition-all duration-400 overflow-hidden ${isExpanded ? '' : 'min-h-[280px] sm:min-h-[300px]'}`}
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.98) 100%)',
+                    }}
                     whileHover={
                       !isMobile && !isExpanded
                         ? {
-                            y: -4,
-                            scale: 1.02,
-                            boxShadow: '0 12px 32px rgba(0,0,0,0.12)',
+                            y: -6,
+                            scale: 1.01,
+                            boxShadow: '0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(201, 169, 107, 0.08)',
                             transition: {
-                              duration: 0.25,
-                              ease: [0.4, 0, 0.2, 1],
+                              duration: 0.4,
+                              ease: [0.25, 0.1, 0.25, 1],
                             },
                           }
                         : undefined
@@ -221,7 +220,7 @@ export default function Services() {
                   </motion.h3>
 
                   {/* Elegant Separator Layer */}
-                  <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/15 to-transparent mb-4" />
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/20 via-accent/30 via-primary/20 to-transparent mb-4" />
 
                   {/* Description - Always visible but compact */}
                   <p className="text-primary/70 leading-relaxed text-sm mb-6 line-clamp-3">

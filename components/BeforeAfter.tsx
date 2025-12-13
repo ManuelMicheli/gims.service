@@ -87,11 +87,11 @@ export default function BeforeAfter() {
   }, [isDragging])
 
   return (
-    <section id="before-after" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-warm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Section Header */}
+    <section id="before-after" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-elegant">
+      {/* Section Header - with container for text */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 sm:mb-16">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
               Prima e Dopo
             </h2>
@@ -100,15 +100,17 @@ export default function BeforeAfter() {
             </p>
           </div>
         </ScrollReveal>
+      </div>
 
-        {/* Slider - Responsive max-width */}
-        <div className="max-w-5xl mx-auto px-2 sm:px-0">
+      {/* Slider - Limited to hero max width */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
+        <div className="max-w-7xl mx-auto">
           <StaggerContainer>
             <motion.div variants={staggerItem} className="relative">
               {/* Before/After Comparison */}
               <div
                 ref={sliderRef}
-                className="relative aspect-[4/3] rounded-lg overflow-hidden bg-background shadow-xl mb-6 select-none"
+                className="relative aspect-[4/3] rounded-sm overflow-hidden bg-surface-elevated shadow-hover mb-6 select-none"
               >
                 {/* Before Image */}
                 <div className="absolute inset-0">

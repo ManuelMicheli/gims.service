@@ -48,7 +48,7 @@ export default function ScrollReveal({
       initial={{ ...initial, opacity: 0 }}
       animate={inView ? { ...animate, opacity: 1 } : { ...initial, opacity: 0 }}
       transition={{
-        duration: 0.6,
+        duration: 0.7,
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}

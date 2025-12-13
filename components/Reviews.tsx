@@ -23,7 +23,7 @@ export default function Reviews() {
   const scrollDistance = reviews.length * totalCardWidth
 
   return (
-    <section id="reviews" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-warm overflow-hidden">
+    <section id="reviews" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-elegant overflow-hidden">
       {/* Section Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 max-w-7xl">
         <ScrollReveal>
@@ -65,16 +65,18 @@ export default function Reviews() {
             {duplicatedReviews.map((review, index) => (
               <motion.div
                 key={`${review.id}-${index}`}
-                className="flex-shrink-0 w-[calc(100vw-64px)] sm:w-[400px] md:w-[450px] lg:w-[500px] xl:w-[550px] bg-background-light p-5 sm:p-6 lg:p-8 rounded-sm border border-primary/5 hover:border-accent/30 transition-all duration-250"
+                className="flex-shrink-0 w-[calc(100vw-64px)] sm:w-[400px] md:w-[450px] lg:w-[500px] xl:w-[550px] bg-surface-elevated p-5 sm:p-6 lg:p-8 rounded-sm border border-primary/8 hover:border-accent/30 shadow-elegant hover:shadow-hover transition-all duration-400"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 248, 248, 0.95) 100%)',
+                }}
                 whileHover={{ 
-                  scale: 1.02, 
-                  y: -5,
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.08)'
+                  scale: 1.01, 
+                  y: -6,
+                  boxShadow: '0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(201, 169, 107, 0.08)'
                 }}
                 transition={{ 
-                  type: 'spring',
-                  stiffness: 300,
-                  damping: 20
+                  duration: 0.4,
+                  ease: [0.25, 0.1, 0.25, 1]
                 }}
               >
                 {/* Quote Icon */}

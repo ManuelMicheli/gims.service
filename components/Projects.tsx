@@ -27,7 +27,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
 
   return (
-    <section id="projects" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background-light">
+    <section id="projects" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-elegant">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <ScrollReveal>
@@ -54,7 +54,15 @@ export default function Projects() {
               key={project.id}
               variants={staggerItem}
               onClick={() => setSelectedProject(project)}
-              className="group relative aspect-[4/3] rounded-lg overflow-hidden bg-background-warm cursor-pointer shadow-md"
+              className="group relative aspect-[4/3] rounded-sm overflow-hidden bg-surface-elevated cursor-pointer shadow-elegant hover:shadow-hover transition-all duration-400"
+              whileHover={{
+                y: -4,
+                scale: 1.01,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.25, 0.1, 0.25, 1],
+                },
+              }}
             >
               {/* Image */}
               <div className="absolute inset-0">
@@ -66,22 +74,22 @@ export default function Projects() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   quality={85}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 via-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
               </div>
 
               {/* Content Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <h3 className="font-headline text-xl font-semibold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="font-headline text-xl font-semibold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-400 ease-elegant">
                   {project.title}
                 </h3>
-                <p className="text-sm text-white/90 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                <p className="text-sm text-white/95 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-400 delay-100 ease-elegant">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-400 delay-150 ease-elegant">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded-sm text-xs text-white"
+                      className="px-3 py-1.5 bg-white/25 backdrop-blur-md rounded-sm text-xs text-white font-medium border border-white/20"
                     >
                       {tag}
                     </span>

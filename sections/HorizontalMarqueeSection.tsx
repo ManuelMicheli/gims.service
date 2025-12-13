@@ -16,8 +16,14 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import HorizontalImageMarquee from '@/components/HorizontalImageMarquee'
+import VelocityImageMarquee from '@/components/VelocityImageMarquee'
+import ScrollReveal from '@/components/animations/ScrollReveal'
 import { horizontalMarqueeImages } from '@/lib/data'
+
+// Filter out aweawe.jpg explicitly
+const filteredImages = horizontalMarqueeImages.filter(
+  (img) => !img.src.includes('aweawe')
+)
 
 export default function HorizontalMarqueeSection() {
   const { ref, inView } = useInView({
@@ -36,37 +42,39 @@ export default function HorizontalMarqueeSection() {
 
       {/* Section Header - with padding */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
-            Dettagli che Fanno la Differenza
-          </h2>
-          <p className="text-base sm:text-lg text-primary/70">
-            Ogni dettaglio curato con precisione artigianale per risultati di eccellenza
-          </p>
-        </motion.div>
+        <ScrollReveal delay={0.1}>
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
+              Dettagli che Fanno la Differenza
+            </h2>
+            <p className="text-base sm:text-lg text-primary/70">
+              Ogni dettaglio curato con precisione artigianale per risultati di eccellenza
+            </p>
+          </div>
+        </ScrollReveal>
       </div>
 
-      {/* Horizontal Image Marquee - Scrolls Left - Full width, no padding */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full"
-      >
-        <HorizontalImageMarquee
-          images={horizontalMarqueeImages}
-          speed={35}
+      {/* Velocity Scroll Image Marquee - Two Lines - Full width, no padding */}
+      <ScrollReveal delay={0.2} direction="up">
+        <div className="relative z-10 w-full space-y-4">
+        {/* First Line - Scrolls Right */}
+        <VelocityImageMarquee
+          images={filteredImages}
+          baseVelocity={50}
           imageWidth={320}
           gap={20}
-          direction="left"
           className="w-full"
         />
-      </motion.div>
+        {/* Second Line - Scrolls Left (inverse velocity) */}
+        <VelocityImageMarquee
+          images={filteredImages}
+          baseVelocity={-50}
+          imageWidth={320}
+          gap={20}
+          className="w-full"
+        />
+        </div>
+      </ScrollReveal>
     </section>
   )
 }

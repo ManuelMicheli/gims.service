@@ -6,14 +6,15 @@ import HorizontalMarqueeSection from '@/sections/HorizontalMarqueeSection'
 import ProjectTimeline from '@/components/ProjectTimeline'
 import About from '@/components/About'
 import BeforeAfter from '@/components/BeforeAfter'
-import Projects from '@/components/Projects'
 import FAQ from '@/components/FAQ'
 import Reviews from '@/components/Reviews'
 import Contact from '@/components/Contact'
+import HashScrollHandler from '@/components/HashScrollHandler'
 
 export default function Home() {
   return (
       <>
+        <HashScrollHandler />
         <Hero />
         <BrandMottoStrip />
         <AcronymSection />
@@ -22,7 +23,6 @@ export default function Home() {
       <ProjectTimeline />
       <About />
       <BeforeAfter />
-      <Projects />
       <FAQ />
       <Reviews />
       <Contact />

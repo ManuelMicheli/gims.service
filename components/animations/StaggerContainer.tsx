@@ -41,6 +41,8 @@ export default function StaggerContainer({
           opacity: 1,
           transition: {
             staggerChildren: staggerDelay,
+          delayChildren: 0.08,
+          ease: [0.22, 1, 0.36, 1],
           },
         },
       }}
@@ -57,7 +59,7 @@ export const staggerItem = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },

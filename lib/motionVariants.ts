@@ -49,8 +49,11 @@ const prefersReducedMotion = typeof window !== 'undefined'
   ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
   : false
 
-// Shared easing function for consistency
+// Shared easing functions for consistency
 const easeOut = [0.4, 0, 0.2, 1] as const
+const easeElegant = [0.25, 0.1, 0.25, 1] as const
+const easeSmooth = [0.22, 1, 0.36, 1] as const
+const easeBounce = [0.34, 1.56, 0.64, 1] as const
 
 /**
  * fadeInUp - For elements appearing on scroll
@@ -70,8 +73,8 @@ export const fadeInUp: Variants = prefersReducedMotion
         opacity: 1,
         y: 0,
         transition: {
-          duration: 0.35,
-          ease: easeOut,
+          duration: 0.6,
+          ease: easeSmooth,
         },
       },
     }
@@ -85,11 +88,11 @@ export const cardHover: Variants = prefersReducedMotion
   ? {}
   : {
       hover: {
-        y: -4,
-        scale: 1.02,
+        y: -6,
+        scale: 1.01,
         transition: {
-          duration: 0.25,
-          ease: easeOut,
+          duration: 0.4,
+          ease: easeElegant,
         },
       },
       tap: {
@@ -162,8 +165,8 @@ export const sectionHeader: Variants = prefersReducedMotion
         opacity: 1,
         y: 0,
         transition: {
-          duration: 0.4,
-          ease: easeOut,
+          duration: 0.7,
+          ease: easeSmooth,
         },
       },
     }
@@ -187,8 +190,9 @@ export const staggerContainer: Variants = prefersReducedMotion
       visible: {
         opacity: 1,
         transition: {
-          staggerChildren: 0.1,
-          delayChildren: 0.05,
+          staggerChildren: 0.12,
+          delayChildren: 0.08,
+          ease: easeSmooth,
         },
       },
     }

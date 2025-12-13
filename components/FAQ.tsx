@@ -22,7 +22,7 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
+    <section id="faq" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-elegant">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <ScrollReveal>
@@ -43,7 +43,10 @@ export default function FAQ() {
               <motion.div
                 key={item.id}
                 variants={staggerItem}
-                className="bg-background-warm border border-primary/5 rounded-sm overflow-hidden"
+                className="bg-surface-elevated border border-primary/8 hover:border-accent/20 shadow-elegant hover:shadow-medium rounded-sm overflow-hidden transition-all duration-400"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.98) 100%)',
+                }}
               >
                 <button
                   onClick={() => toggleItem(index)}

@@ -23,7 +23,7 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-background">
+    <section id="about" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-gradient-elegant">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-7xl">
         {/* 
           RESPONSIVE LAYOUT:

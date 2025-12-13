@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/animations/ScrollProgress'
 import CookieConsent from '@/components/CookieConsent'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import { companyInfo } from '@/lib/data'
+import { companyInfo, services, reviews, faqItems } from '@/lib/data'
 import Script from 'next/script'
 
 // Elegant serif font for headlines
@@ -45,14 +45,27 @@ export const metadata: Metadata = {
   description: 'G.I.M.S. Service offre ristrutturazioni e finiture d\'interni di alta qualità a Milano e provincia. Oltre 30 anni di esperienza con Geometra José Giardino. Imbiancatura, cartongesso, pavimenti, bagni. Sopralluogo gratuito.',
   keywords: [
     'ristrutturazioni Milano',
-    'finiture interne',
+    'ristrutturazioni Bareggio',
+    'finiture interne Milano',
     'imbiancatura Bareggio',
+    'imbiancatura Milano',
     'cartongesso Milano',
-    'pavimenti legno',
-    'ristrutturazione bagni',
+    'pavimenti legno Milano',
+    'ristrutturazione bagni Milano',
+    'ristrutturazione bagni Bareggio',
+    'Geometra José Giardino',
     'Geometra Giardino',
     'GIMS Service',
+    'G.I.M.S. Service',
     'lavori edili Milano',
+    'lavori edili Bareggio',
+    'ristrutturazione appartamenti Milano',
+    'ristrutturazione case Milano',
+    'pavimenti ceramica Milano',
+    'tapparelle Milano',
+    'spatolati Milano',
+    'decorazioni pareti Milano',
+    'manutenzione stabili Milano',
   ],
   authors: [{ name: 'G.I.M.S. Service' }],
   creator: 'G.I.M.S. Service',
@@ -68,20 +81,20 @@ export const metadata: Metadata = {
     url: 'https://gimsservice.vercel.app',
     siteName: 'G.I.M.S. Service',
     title: 'G.I.M.S. Service - Ristrutturazioni e Finiture d\'Interni | Bareggio (MI)',
-    description: 'Oltre 30 anni di esperienza nella ristrutturazione e finiture d\'interni. Sopralluogo gratuito.',
+    description: 'Oltre 30 anni di esperienza nella ristrutturazione e finiture d\'interni a Milano e provincia. Geometra José Giardino. Imbiancatura, cartongesso, pavimenti, bagni. Sopralluogo gratuito.',
     images: [
       {
         url: '/images/terrazzo-moderno-struttura-vetro.webp.jpg',
         width: 1200,
         height: 630,
-        alt: 'G.I.M.S. Service - Ristrutturazioni Milano',
+        alt: 'G.I.M.S. Service - Ristrutturazioni e Finiture d\'Interni Milano - Oltre 30 anni di esperienza',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'G.I.M.S. Service - Ristrutturazioni e Finiture d\'Interni',
-    description: 'Oltre 30 anni di esperienza nella ristrutturazione e finiture d\'interni.',
+    title: 'G.I.M.S. Service - Ristrutturazioni e Finiture d\'Interni | Milano',
+    description: 'Oltre 30 anni di esperienza nella ristrutturazione e finiture d\'interni a Milano e provincia. Sopralluogo gratuito.',
     images: ['/images/terrazzo-moderno-struttura-vetro.webp.jpg'],
   },
   robots: {
@@ -107,13 +120,15 @@ export const metadata: Metadata = {
   },
 }
 
-// JSON-LD Structured Data
-const jsonLd = {
+// JSON-LD Structured Data - Enhanced LocalBusiness Schema
+const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: companyInfo.name,
-  image: 'https://gimsservice.vercel.app/images/terrazzo-moderno-struttura-vetro.webp.jpg',
   '@id': 'https://gimsservice.vercel.app',
+  name: companyInfo.name,
+  legalName: companyInfo.name,
+  image: 'https://gimsservice.vercel.app/images/terrazzo-moderno-struttura-vetro.webp.jpg',
+  logo: 'https://gimsservice.vercel.app/images/terrazzo-moderno-struttura-vetro.webp.jpg',
   url: 'https://gimsservice.vercel.app',
   telephone: companyInfo.phone,
   email: companyInfo.email,
@@ -121,7 +136,7 @@ const jsonLd = {
     '@type': 'PostalAddress',
     streetAddress: companyInfo.address,
     addressLocality: 'Bareggio',
-    addressRegion: 'MI',
+    addressRegion: 'Lombardia',
     postalCode: '20008',
     addressCountry: 'IT',
   },
@@ -139,14 +154,132 @@ const jsonLd = {
       closes: '18:00',
     },
   ],
-  sameAs: [
-    // Add social media links when available
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Milano',
+    },
+    {
+      '@type': 'City',
+      name: 'Bareggio',
+    },
+    {
+      '@type': 'State',
+      name: 'Lombardia',
+    },
   ],
+  serviceArea: {
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: '45.4769',
+      longitude: '9.0000',
+    },
+    geoRadius: {
+      '@type': 'Distance',
+      value: '50',
+      unitCode: 'KM',
+    },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Servizi di Ristrutturazione e Finiture',
+    itemListElement: services.map((service, index) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        provider: {
+          '@type': 'LocalBusiness',
+          name: companyInfo.name,
+        },
+        areaServed: {
+          '@type': 'City',
+          name: 'Milano',
+        },
+      },
+      position: index + 1,
+    })),
+  },
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '5',
+    reviewCount: reviews.length.toString(),
+    bestRating: '5',
+    worstRating: '1',
   },
+  review: reviews.map((review) => ({
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: review.name,
+    },
+    reviewBody: review.quote,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.rating.toString(),
+      bestRating: '5',
+      worstRating: '1',
+    },
+  })),
+}
+
+// Organization Schema for E-E-A-T
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: companyInfo.name,
+  url: 'https://gimsservice.vercel.app',
+  logo: 'https://gimsservice.vercel.app/images/terrazzo-moderno-struttura-vetro.webp.jpg',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: companyInfo.phone,
+    contactType: 'customer service',
+    areaServed: 'IT',
+    availableLanguage: 'Italian',
+  },
+  founder: {
+    '@type': 'Person',
+    name: companyInfo.owner,
+    jobTitle: 'Geometra',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: companyInfo.address,
+    addressLocality: 'Bareggio',
+    addressRegion: 'Lombardia',
+    postalCode: '20008',
+    addressCountry: 'IT',
+  },
+}
+
+// FAQPage Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
+// BreadcrumbList Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://gimsservice.vercel.app',
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -164,9 +297,25 @@ export default function RootLayout({
         <meta name="theme-color" content="#1a1a1a" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Structured Data - LocalBusiness */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        {/* Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        {/* Structured Data - FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        {/* Structured Data - BreadcrumbList */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       </head>
       <body className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${inter.variable} font-body antialiased`}>

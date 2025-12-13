@@ -1,12 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { smoothScrollTo } from '@/lib/utils'
 import PremiumButton from '@/components/ui/PremiumButton'
 import { AnimatedHeadline, AnimatedHighlightWord, AnimatedText } from '@/components/animations/TypographyAnimations'
 import HeroSlideshow from '@/components/HeroSlideshow'
 
 export default function Hero() {
+  const router = useRouter()
+
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden lg:-mt-20">
       {/* Background - Solid color with gradient */}
@@ -27,62 +30,62 @@ export default function Hero() {
                   Trasformiamo{' '}
                   i tuoi spazi{' '}
                   con{' '}
-                  <AnimatedHighlightWord>
+              <AnimatedHighlightWord>
                     <span className="italic">
-                      precisione
+                  precisione
                     </span>
-                  </AnimatedHighlightWord>
-                  {' '}
+              </AnimatedHighlightWord>
+              {' '}
                   e{' '}
                   qualità
                 </span>
-              </AnimatedHeadline>
+            </AnimatedHeadline>
 
               {/* Description */}
-              <AnimatedText
-                delay={0.4}
+          <AnimatedText
+            delay={0.4}
                 className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed max-w-none lg:max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
-              >
+          >
                 <span style={{ color: '#1A1A1A' }}>
-                  Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
-                  Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
-                  Il perfetto equilibrio tra qualità artigianale e investimento mirato.
+              Oltre 30 anni di esperienza nella ristrutturazione e finiture d&apos;interni.
+              Soluzioni su misura, dall&apos;ispezione iniziale alla consegna finale.
+              Il perfetto equilibrio tra qualità artigianale e investimento mirato.
                 </span>
-              </AnimatedText>
+            </AnimatedText>
 
               {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
                 className="flex flex-col sm:flex-row gap-5 sm:gap-6 md:gap-7 justify-center lg:justify-start pt-4 sm:pt-6"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                <PremiumButton
+                  onClick={() => smoothScrollTo('contact')}
+                  variant="primary"
                 >
-                  <PremiumButton
-                    onClick={() => smoothScrollTo('contact')}
-                    variant="primary"
-                  >
-                    Richiedi un sopralluogo
-                  </PremiumButton>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7, ease: [0.4, 0, 0.2, 1] }}
-                >
-                  <PremiumButton
-                    onClick={() => smoothScrollTo('before-after')}
-                    variant="primary"
-                  >
-                    Guarda i lavori realizzati
-                  </PremiumButton>
-                </motion.div>
+                  Richiedi un sopralluogo
+                </PremiumButton>
               </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <PremiumButton
+                  onClick={() => router.push('/progetti')}
+                    variant="primary"
+                >
+                  Guarda i lavori realizzati
+                </PremiumButton>
+              </motion.div>
+            </motion.div>
             </div>
 
             {/* Hero Slideshow - Right column, foreground layer */}

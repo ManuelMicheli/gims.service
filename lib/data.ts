@@ -7,20 +7,58 @@ export interface InfiniteImage {
   alt: string
 }
 
+// Helper function to filter out images that don't exist in public/images
+function filterExisting<T extends { src?: string }>(items: T[]): T[] {
+  const existingImages = [
+    '4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg',
+    '5982973e-9973-46c8-8f99-478d10760c15.jpg',
+    '5b4c008d-08c2-433d-86ae-1fcba80984e5.jpg',
+    '7f8fe441-0f7e-4dd6-bf4a-59d023966520.jpg',
+    '804002da-04f4-418d-997a-ed1728a9698b.jpg',
+    '8cbb728f-f039-47a9-8131-56a991915218.jpg',
+    'a129ce9f-dc35-4d41-a56b-432ab3da30c5.jpg',
+    'ca1120c3-bfa2-4dc9-bd59-4aebbdba7510.jpg',
+    'cucina.jpg',
+    'd0affa3a-d7c8-4f5c-8edb-ccac1961f9d8.jpg',
+    'd9e27b30-83e5-4325-a353-52c8da95eb83.jpg',
+    'df187613-432f-4776-b510-1dfe30de7193.jpg',
+    'dopo dopo.jpg',
+    'dopo.jpg',
+    'ebc80799-ae77-4385-8bc4-c9612f7762c2.jpg',
+    'f61873bd-59d5-481d-bce0-67751c62b1d7.jpg',
+    'imbiancatura e pavi.jpg',
+    'imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg',
+    'installazione-pavimenti-legno.webp.jpg',
+    'prima prima.jpg',
+    'prima.jpg',
+    'recinzione-legno-lavori-esterni.webp.jpg',
+    'soggiorno-moderno-pavimenti-legno.webp.jpg',
+    'terrazzo-moderno-struttura-vetro.webp.jpg',
+    'unnamed (1).jpg',
+  ]
+  
+  return items.filter((item) => {
+    if (!item.src) return false
+    const imageName = item.src.replace('/images/', '')
+    return existingImages.includes(imageName) && !imageName.includes('aweawe')
+  })
+}
+
 // Hero section slideshow images - professional renovation project images
-export const HERO_IMAGES: InfiniteImage[] = [
+const _HERO_IMAGES_RAW: InfiniteImage[] = [
   { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
   { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
   { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
   { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
   { src: '/images/recinzione-legno-lavori-esterni.webp.jpg', alt: 'Lavori esterni recinzione in legno - Ristrutturazione terrazzo Milano' },
 ]
+export const HERO_IMAGES: InfiniteImage[] = filterExisting(_HERO_IMAGES_RAW)
 
 // Legacy export for backward compatibility
 export const heroMarqueeImages = HERO_IMAGES
 
 // Horizontal marquee images - renovation detail images (first row - scrolls left)
-export const horizontalMarqueeImages: InfiniteImage[] = [
+const _horizontalMarqueeImages_RAW: InfiniteImage[] = [
   { src: '/images/804002da-04f4-418d-997a-ed1728a9698b.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori di qualità' },
   { src: '/images/7f8fe441-0f7e-4dd6-bf4a-59d023966520.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti' },
   { src: '/images/d0affa3a-d7c8-4f5c-8edb-ccac1961f9d8.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale' },
@@ -33,26 +71,27 @@ export const horizontalMarqueeImages: InfiniteImage[] = [
   { src: '/images/d9e27b30-83e5-4325-a353-52c8da95eb83.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale premium' },
   { src: '/images/4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto completato con eccellenza' },
 ]
+export const horizontalMarqueeImages: InfiniteImage[] = filterExisting(_horizontalMarqueeImages_RAW)
 
 // Horizontal marquee images - second row (scrolls right, opposite direction)
-export const horizontalMarqueeImagesRow2: InfiniteImage[] = [
-  { src: '/images/12dc9512-b826-49be-9a94-f6bfdba2a998.jpg', alt: 'Dettaglio ristrutturazione Milano - Lavori eseguiti con precisione' },
+// NOTE: This array is not currently used, but kept for potential future use
+const _horizontalMarqueeImagesRow2_RAW: InfiniteImage[] = [
   { src: '/images/5982973e-9973-46c8-8f99-478d10760c15.jpg', alt: 'Dettaglio ristrutturazione Milano - Finiture di qualità' },
   { src: '/images/5b4c008d-08c2-433d-86ae-1fcba80984e5.jpg', alt: 'Dettaglio ristrutturazione Milano - Progetto realizzato Milano' },
-  { src: '/images/78448fbf-f531-4d0b-9e57-cccc7d944734.jpg', alt: 'Dettaglio ristrutturazione Milano - Trasformazione completa' },
-  { src: '/images/8c139d39-4132-4d2d-ba1b-0dbdb8d8a871.jpg', alt: 'Dettaglio ristrutturazione Milano - Qualità artigianale premium' },
 ]
+export const horizontalMarqueeImagesRow2: InfiniteImage[] = filterExisting(_horizontalMarqueeImagesRow2_RAW)
 
-export const dualVerticalImages: InfiniteImage[] = [
+const _dualVerticalImages_RAW: InfiniteImage[] = [
   { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
   { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
   { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
-  { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
+  { src: '/images/imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg', alt: 'Imbiancatura pareti e pavimenti in legno - Ristrutturazione completa Milano' },
   { src: '/images/recinzione-legno-lavori-esterni.webp.jpg', alt: 'Lavori esterni recinzione in legno - Ristrutturazione terrazzo Milano' },
   { src: '/images/terrazzo-moderno-struttura-vetro.webp.jpg', alt: 'Terrazzo moderno con struttura in vetro - Ristrutturazione spazi esterni Milano' },
   { src: '/images/soggiorno-moderno-pavimenti-legno.webp.jpg', alt: 'Soggiorno moderno ristrutturato con pavimenti in legno - Interni eleganti Milano' },
   { src: '/images/installazione-pavimenti-legno.webp.jpg', alt: 'Installazione pavimenti in legno durante ristrutturazione - Lavori in corso Milano' },
 ]
+export const dualVerticalImages: InfiniteImage[] = filterExisting(_dualVerticalImages_RAW)
 
 export interface Service {
   id: string
@@ -145,7 +184,7 @@ export const services: Service[] = [
   },
 ]
 
-export const beforeAfterItems: BeforeAfterItem[] = [
+const _beforeAfterItems_RAW: BeforeAfterItem[] = [
   {
     id: '1',
     beforeImage: '/images/dopo.jpg',
@@ -171,8 +210,41 @@ export const beforeAfterItems: BeforeAfterItem[] = [
     tags: ['Ristrutturazione', 'Completa', 'Milano'],
   },
 ]
+export const beforeAfterItems: BeforeAfterItem[] = _beforeAfterItems_RAW.filter((item) => {
+  if (!item.beforeImage || !item.afterImage) return false
+  const beforeName = item.beforeImage.replace('/images/', '')
+  const afterName = item.afterImage.replace('/images/', '')
+  const existingImages = [
+    '4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg',
+    '5982973e-9973-46c8-8f99-478d10760c15.jpg',
+    '5b4c008d-08c2-433d-86ae-1fcba80984e5.jpg',
+    '7f8fe441-0f7e-4dd6-bf4a-59d023966520.jpg',
+    '804002da-04f4-418d-997a-ed1728a9698b.jpg',
+    '8cbb728f-f039-47a9-8131-56a991915218.jpg',
+    'a129ce9f-dc35-4d41-a56b-432ab3da30c5.jpg',
+    'ca1120c3-bfa2-4dc9-bd59-4aebbdba7510.jpg',
+    'cucina.jpg',
+    'd0affa3a-d7c8-4f5c-8edb-ccac1961f9d8.jpg',
+    'd9e27b30-83e5-4325-a353-52c8da95eb83.jpg',
+    'df187613-432f-4776-b510-1dfe30de7193.jpg',
+    'dopo dopo.jpg',
+    'dopo.jpg',
+    'ebc80799-ae77-4385-8bc4-c9612f7762c2.jpg',
+    'f61873bd-59d5-481d-bce0-67751c62b1d7.jpg',
+    'imbiancatura e pavi.jpg',
+    'imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg',
+    'installazione-pavimenti-legno.webp.jpg',
+    'prima prima.jpg',
+    'prima.jpg',
+    'recinzione-legno-lavori-esterni.webp.jpg',
+    'soggiorno-moderno-pavimenti-legno.webp.jpg',
+    'terrazzo-moderno-struttura-vetro.webp.jpg',
+    'unnamed (1).jpg',
+  ]
+  return existingImages.includes(beforeName) && existingImages.includes(afterName) && !beforeName.includes('aweawe') && !afterName.includes('aweawe')
+})
 
-export const projects: Project[] = [
+const _projects_RAW: Project[] = [
   {
     id: '1',
     title: 'Restyling Cucina',
@@ -255,6 +327,38 @@ export const projects: Project[] = [
     year: '2023',
   },
 ]
+export const projects: Project[] = _projects_RAW.filter((item) => {
+  if (!item.image) return false
+  const imageName = item.image.replace('/images/', '')
+  const existingImages = [
+    '4a0e014e-88a5-4d35-affc-2fef16cd78ee.jpg',
+    '5982973e-9973-46c8-8f99-478d10760c15.jpg',
+    '5b4c008d-08c2-433d-86ae-1fcba80984e5.jpg',
+    '7f8fe441-0f7e-4dd6-bf4a-59d023966520.jpg',
+    '804002da-04f4-418d-997a-ed1728a9698b.jpg',
+    '8cbb728f-f039-47a9-8131-56a991915218.jpg',
+    'a129ce9f-dc35-4d41-a56b-432ab3da30c5.jpg',
+    'ca1120c3-bfa2-4dc9-bd59-4aebbdba7510.jpg',
+    'cucina.jpg',
+    'd0affa3a-d7c8-4f5c-8edb-ccac1961f9d8.jpg',
+    'd9e27b30-83e5-4325-a353-52c8da95eb83.jpg',
+    'df187613-432f-4776-b510-1dfe30de7193.jpg',
+    'dopo dopo.jpg',
+    'dopo.jpg',
+    'ebc80799-ae77-4385-8bc4-c9612f7762c2.jpg',
+    'f61873bd-59d5-481d-bce0-67751c62b1d7.jpg',
+    'imbiancatura e pavi.jpg',
+    'imbiancatura-pareti-pavimenti-legno.webp.jpg.jpg',
+    'installazione-pavimenti-legno.webp.jpg',
+    'prima prima.jpg',
+    'prima.jpg',
+    'recinzione-legno-lavori-esterni.webp.jpg',
+    'soggiorno-moderno-pavimenti-legno.webp.jpg',
+    'terrazzo-moderno-struttura-vetro.webp.jpg',
+    'unnamed (1).jpg',
+  ]
+  return existingImages.includes(imageName) && !imageName.includes('aweawe')
+})
 
 export const faqItems: FAQItem[] = [
   {

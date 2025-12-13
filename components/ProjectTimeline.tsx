@@ -26,6 +26,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import ScrollReveal from '@/components/animations/ScrollReveal'
 import {
   ClipboardCheck,
   Ruler,
@@ -121,20 +122,16 @@ export default function ProjectTimeline() {
     <section id="timeline" className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={fadeInUp}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
-        >
-          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
-            Il Nostro Processo
-          </h2>
-          <p className="text-lg text-primary/70">
-            Dalla consulenza iniziale alla consegna finale, ogni fase è curata nei minimi dettagli
-          </p>
-        </motion.div>
+        <ScrollReveal delay={0.1}>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary mb-4">
+              Il Nostro Processo
+            </h2>
+            <p className="text-lg text-primary/70">
+              Dalla consulenza iniziale alla consegna finale, ogni fase è curata nei minimi dettagli
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Timeline - Desktop: Horizontal, Tablet/Mobile: Vertical */}
         {/* 

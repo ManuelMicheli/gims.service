@@ -3,6 +3,7 @@
 import { companyInfo } from '@/lib/data'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useRouter, usePathname } from 'next/navigation'
 
 /**
  * Footer Component
@@ -15,23 +16,46 @@ import { useInView } from 'react-intersection-observer'
 const footerLinks = [
   { label: 'Home', id: 'hero' },
   { label: 'Servizi', id: 'services' },
-  { label: 'Galleria', id: 'projects' },
+  { label: 'Galleria', id: 'projects', href: '/progetti' },
   { label: 'Domande', id: 'faq' },
   { label: 'Recensioni', id: 'reviews' },
   { label: 'Contatti', id: 'contact' },
 ]
 
 export default function Footer() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
   const currentYear = new Date().getFullYear()
   const [footerRef, isInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
-  const handleLinkClick = (id: string) => {
-    const element = document.getElementById(id)
+  const handleLinkClick = (link: typeof footerLinks[0]) => {
+    if (link.href) {
+      // Link con href specifico (es. /progetti)
+      router.push(link.href)
+    } else if (link.id === 'hero') {
+      // Link Home: naviga alla home page
+      if (isHomePage) {
+        const element = document.getElementById(link.id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        router.push('/')
+      }
+    } else {
+      // Altri link: se siamo sulla home, fai scroll, altrimenti naviga alla home con hash
+      if (isHomePage) {
+        const element = document.getElementById(link.id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        router.push(`/#${link.id}`)
+      }
     }
   }
 
@@ -98,7 +122,7 @@ export default function Footer() {
                   transition={{ delay: 0.1 + index * 0.05, duration: 0.4 }}
                 >
                   <motion.button
-                    onClick={() => handleLinkClick(link.id)}
+                    onClick={() => handleLinkClick(link)}
                     className="relative text-sm text-white/80 hover:text-accent transition-colors duration-200 group"
                     whileHover={{ x: 2 }}
                   >
@@ -152,7 +176,7 @@ export default function Footer() {
         {/* Copyright & Legal Info */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="text-center space-y-2 text-sm text-white/60">
-            <p>
+          <p>
               <strong className="text-white/80">{companyInfo.name}</strong> | P.IVA [da inserire] | {companyInfo.address}, {companyInfo.city}
             </p>
             <p>
