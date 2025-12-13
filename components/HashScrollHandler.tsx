@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { smoothScrollTo } from '@/lib/utils'
 
 /**
@@ -12,7 +12,6 @@ import { smoothScrollTo } from '@/lib/utils'
  */
 export default function HashScrollHandler() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     // Only handle hash scrolling on the home page
@@ -29,7 +28,7 @@ export default function HashScrollHandler() {
 
       return () => clearTimeout(timer)
     }
-  }, [pathname, searchParams])
+  }, [pathname])
 
   return null
 }
